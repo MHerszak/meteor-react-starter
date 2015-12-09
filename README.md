@@ -30,15 +30,15 @@ Check out the [ThemeManager] javascript file to understand the important fields.
 ## Help is needed
 I am aiming to build in these packages, such as:
   
-  * [x] email integration
-  * [x] search
-  * [x] settings
-  * [x] tags
-  * [x] users
-  * [x] api
-  * [x] newsletter
-  * [x] posts
-  * [x] payment integration (e.g. Stripe)
+  * [ ] email integration
+  * [ ] search
+  * [ ] settings
+  * [ ] tags
+  * [ ] users
+  * [ ] api
+  * [ ] newsletter
+  * [ ] posts
+  * [ ] payment integration (e.g. Stripe)
   
 ## Packages
 Packages are further described here.
