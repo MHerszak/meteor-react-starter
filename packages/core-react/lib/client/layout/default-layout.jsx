@@ -56,7 +56,7 @@ class TopBar extends React.Component {
             </IconMenu>;
 
         return (<AppBar
-            title="Ship4Me"
+            title="Meteor-React-Starter"
             iconElementLeft={<IconButton onClick={this.props.onClick} >{LeftIcon}</IconButton>}
             iconElementRight={rightItems}>
         </AppBar>);
