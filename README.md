@@ -13,7 +13,7 @@ This is a simple server side email send on, e.g. user registers account.
 ### search
 A search customizable based on what ever collections are available.
 ### share
-This package is solely for social sharing or 'this' particular content.
+This package is solely for social sharing for 'this' particular content.
 ### settings
 This package will only be usable to an admin of this site. It will help to maintain users, site content, themes, newsletter and email setup etc.
 ### tags
