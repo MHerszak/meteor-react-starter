@@ -14,8 +14,12 @@ const {
     LeftNav,
     IconMenu,
     } = MUI;
-var { ThemeManager, LightRawTheme } = Styles;
+var { ThemeManager} = Styles;
 
+/**
+ * Build some sort for the menu. Or a hook system where
+ * @type {*[]}
+ */
 menuItems = [
     { route: 'get-started', text: 'Get Started' },
     { type: "SUBHEADER", text: 'Resources' },
@@ -48,8 +52,12 @@ class TopBar extends React.Component {
 
     render()
     {
+        /**
+         * RightMenu will become a module
+         * @type {XML}
+         */
         let LeftIcon = this.state.sideNavOpen ? <SvgIcons.NavigationClose /> : <SvgIcons.NavigationMenu />,
-            rightItems = <IconMenu iconButtonElement={<IconButton><Avatar>A</Avatar></IconButton>}>
+            rightItems = <IconMenu iconButtonElement={<IconButton><SvgIcons.NavigationMenu /></IconButton>}>
                 <MenuItem key={0} index={0} primaryText="Refresh" />
                 <MenuItem key={1} index={1} primaryText="Help" />
                 <MenuItem key={2} index={2} primaryText="Sign out" />

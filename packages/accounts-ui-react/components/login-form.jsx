@@ -1,6 +1,3 @@
-var {
-    Paper
-    } = MUI;
 
 //instance of translate component in "accounts-ui" namespace
 const T = _i18n.createComponent(_i18n.createTranslator('accounts-ui'));
@@ -13,7 +10,7 @@ LoginForm = React.createClass({
     },
     render () {
         let services = utils.getServiceNames();
-        console.log("services: ", services);
+        //console.log("services: ", services);
         const { clearErrors, onError } = this.props;
         //`Sign in with ${utils.capitalize(service)}`
         return (

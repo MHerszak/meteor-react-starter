@@ -14,6 +14,8 @@ class Login extends React.Component{
     }
 }
 
+Login.displayName = 'Login';
+
 ComboBox = React.createClass({
     displayName: 'ComboBox',
 

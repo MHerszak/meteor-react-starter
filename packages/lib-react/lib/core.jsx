@@ -8,8 +8,4 @@ Base2Ind = {};
  * Add namespace for classes
  * @type {{}}
  */
-Base2Ind = {
-    Classes: {}
-};
-
-ISINPRODUCTION = false;
+Base2Ind.Classes = {};

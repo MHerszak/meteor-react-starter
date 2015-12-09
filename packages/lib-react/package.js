@@ -57,6 +57,11 @@ Package.onUse(function(api)
     './lib/core.jsx',
   ],['client','server']);
 
+  api.addFiles([
+    // Components Core
+    './lib/bind-component.jsx',
+  ],['client']);
+
   api.export([
     // export the namespace
     'Base2Ind'

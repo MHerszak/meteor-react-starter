@@ -25,23 +25,37 @@ Package.onUse(function(api)
   api.imply(packages);
 
   api.addFiles([
+    './lib/namespace.jsx',
+
+  ],['client','server']);
+
+  api.addFiles([
     './lib/client/themes/blue-theme.js',
 
     './lib/client/css/materialize.min.css',
+
+    // Components scaffolding
+    './lib/client/scaffolding/row.jsx',
+    './lib/client/scaffolding/col.jsx',
+    './lib/client/scaffolding/container.jsx',
+
+    // view components
+    './lib/client/view/home-page.jsx',
 
     './lib/client/layout/default-layout.jsx',
 
   ],['client']);
 
   api.addFiles([
-    './lib/server/admin/startup.js',
 
-  ],['server']);
-
-  api.addFiles([
     './routes.jsx',
 
   ],['client','server']);
+
+  api.addFiles([
+    './lib/server/admin/startup.js',
+
+  ],['server']);
 
   api.export([
     // export the namespace
