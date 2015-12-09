@@ -42,6 +42,8 @@ I am aiming to build in these packages, such as:
   
 ## Packages
 Packages are further described here.
+### payment integration
+It should be possible to add a certain payment solution to this app. Strip is currently the prefered solution.
 ### posts
 Will be used to create content and entries.
 ### email
