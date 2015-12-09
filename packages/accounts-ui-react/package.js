@@ -16,21 +16,25 @@ Package.onUse(function (api) {
 
     api.addFiles([
         'utils.js',
-        'components/combo-box.jsx',
-        'components/error-messages.jsx',
-        'components/logged-in.jsx',
-        'components/login-box.jsx',
-        'components/login-form.jsx',
-        'components/oauth-button.jsx',
-        'components/password-form.jsx',
-        'components/register-box.jsx',
-        'components/register-form.jsx',
-        'components/reset-password-box.jsx',
-        'i18n/en.i18n.json',
-        'i18n/ru.i18n.json',
-    ]);
+        './lib/components/combo-box.jsx',
+        './lib/components/error-messages.jsx',
+        './lib/components/logged-in.jsx',
+        './lib/components/login-box.jsx',
+        './lib/components/login-form.jsx',
+        './lib/components/oauth-button.jsx',
+        './lib/components/password-form.jsx',
+        './lib/components/register-box.jsx',
+        './lib/components/register-form.jsx',
+        './lib/components/reset-password-box.jsx',
+    ],['client']);
 
     api.addFiles([
         './lib/routes.jsx',
     ],['client']);
+
+    var languages = ["en"];
+    var languagesPaths = languages.map(function (language) {
+        return "./i18n/"+language+".i18n.json";
+    });
+    api.addFiles(languagesPaths, ["client", "server"]);
 });

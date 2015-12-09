@@ -62,4 +62,10 @@ Package.onUse(function(api)
     'App'
   ],['client']);
 
+  var languages = ["en","de"];
+  var languagesPaths = languages.map(function (language) {
+    return "./i18n/"+language+".i18n.json";
+  });
+  api.addFiles(languagesPaths, ["client", "server"]);
+
 });

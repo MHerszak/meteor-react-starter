@@ -23,9 +23,15 @@ Package.onUse(function(api) {
       './lib/client/components/search-bar.jsx',
   ],['client']);
 
+  var languages = ["en","de"];
+  var languagesPaths = languages.map(function (language) {
+    return "./i18n/"+language+".i18n.json";
+  });
+  api.addFiles(languagesPaths, ["client", "server"]);
+
   api.export(['' +
   'SearchBar'
-  ])
+  ]);
 });
 
 Package.onTest(function(api) {
