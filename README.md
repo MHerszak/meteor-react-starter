@@ -2,6 +2,30 @@
 This is a meteor and react project inspired by [Telescopeapp.org] and its underlying [architecture].
 ## Theme
 The current theme relies on [izzilab:material-ui] and can be customized using objects. You will find the documentation here: [React material-ui]
+Example:
+
+```javascript
+let BlueTheme =
+{
+    spacing: Spacing,
+    fontFamily: 'Roboto, sans-serif',
+    palette: {
+        primary1Color: Colors.blue200,
+        primary2Color: Colors.blue400,
+        primary3Color: Colors.lightBlack,
+        accent1Color: Colors.pinkA200,
+        accent2Color: Colors.grey100,
+        accent3Color: Colors.grey500,
+        textColor: Colors.darkBlack,
+        alternateTextColor: Colors.white,
+        canvasColor: Colors.white,
+        borderColor: Colors.grey300,
+        disabledColor: ColorManipulator.fade(Colors.darkBlack, 0.3),
+    },
+};
+```
+Check out the [ThemeManager].
+
 ## Help is needed
 I am aiming to build in these packages, such as email, search, share, settings, tags, users, api, newsletters, posts
 ## Packages
@@ -32,3 +56,4 @@ My name is Michel Herszak. I am a freelance web developer from Canada. I special
 [izzilab:material-ui]: <https://atmospherejs.com/izzilab/material-ui>
 [React material-ui]: <http://www.material-ui.com/#/>
 [mailchimp.com]: <http://mailchimp.com/>
+[ThemeManager]: <https://github.com/callemall/material-ui/blob/master/src/styles/theme-manager.js>
