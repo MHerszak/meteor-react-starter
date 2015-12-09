@@ -31,7 +31,7 @@ SearchBar = class SearchBar extends BindComponent
         /**
          * This is only an example of how search could be implemented.
          *
-         * AutoComplete.Item will be tunred into an array.
+         * AutoComplete.Item will be turned into an array of results.
          */
         return (
             <div>

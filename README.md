@@ -1,8 +1,9 @@
 # meteor-react-starter
 This is a meteor and react project inspired by [Telescopeapp.org] and its underlying [architecture].
 ## Theme
-The current theme relies on [izzilab:material-ui] and can be customized using objects. You will find the documentation here: [React material-ui]
-Example:
+The current theme relies on [izzilab:material-ui] and can be customized using objects. You will find the documentation here: [React material-ui].
+
+Here is a short example:
 
 ```javascript
 let BlueTheme =
@@ -24,10 +25,10 @@ let BlueTheme =
     },
 };
 ```
-Check out the [ThemeManager].
+Check out the [ThemeManager] javascript file to understand the important fields.
 
 ## Help is needed
-I am aiming to build in these packages, such as email, search, share, settings, tags, users, api, newsletters, posts
+I am aiming to build in these packages, such as email, search, share, settings, tags, users, api, newsletters, and posts.
 ## Packages
 Packages are further described here.
 ### posts
@@ -36,6 +37,32 @@ Will be used to create content and entries.
 This is a simple server side email send on, e.g. user registers account.
 ### search
 A search customizable based on what ever collections are available.
+
+```javascript
+render()
+    {
+        /**
+         * This is only an example of how search could be implemented.
+         *
+         * AutoComplete.Item will be turned into an array of results.
+         */
+        return (
+            <div>
+                <AutoComplete
+                    fullWidth = {true}
+                    showAllItems = {true}
+                    dataSource={{
+                        a:(<AutoComplete.Item primaryText={'a'} secondaryText="&#9786;" />),
+                        divider:(<AutoComplete.Divider/>),
+                        b:(<AutoComplete.Item primaryText={'b'} secondaryText="&#9885;" />),
+                    }}
+                    onUpdateInput={(t) => {console.log(t); this.setState({input1: [t, t+t, t+t+t]});}}
+                    onNewRequest={(t, index) => {console.log('request:'+index);}} />
+            </div>
+        );
+    }
+```
+
 ### share
 This package is solely for social sharing for 'this' particular content.
 ### settings
