@@ -31,6 +31,8 @@ Check out the [ThemeManager] javascript file to understand the important fields.
 I am aiming to build in these packages, such as:
   
   * [ ] email integration
+  * [ ] upload
+  * [ ] layout
   * [ ] search
   * [ ] settings
   * [ ] tags
@@ -46,6 +48,13 @@ Packages are further described here.
 It should be possible to add a certain payment solution to this app. Strip is currently the prefered solution.
 ### posts
 Will be used to create content and entries.
+### layout
+This app should maintain several layouts. These are the ones applicable at the moment.
+
+![Theme layout possibilities](https://cloud.githubusercontent.com/assets/4604432/11704021/3d03af7a-9ea1-11e5-83da-3728ab9d00d7.png)
+
+### upload
+This package is supposed to integrate upload functionality, to other services but also to a local space.
 ### email
 This is a simple server side email send on, e.g. user registers account.
 ### search
