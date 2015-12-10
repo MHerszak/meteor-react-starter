@@ -30,7 +30,8 @@ Package.onUse(function(api)
   ],['client','server']);
 
   api.addFiles([
-    './lib/client/themes/blue-theme.js',
+
+    './lib/client/themes/custom-theme.js',
 
     './lib/client/css/materialize.min.css',
 
@@ -41,7 +42,12 @@ Package.onUse(function(api)
 
     // view components
     './lib/client/view/home-page.jsx',
+    // shared components
+    './lib/client/shared/sidebar.jsx', //test
+    './lib/client/shared/top-bar.jsx',
+    './lib/client/shared/material-title-panel.jsx',
 
+    './lib/client/layout/sidebar-content.jsx',
     './lib/client/layout/default-layout.jsx',
 
   ],['client']);

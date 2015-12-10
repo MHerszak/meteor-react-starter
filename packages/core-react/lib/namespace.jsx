@@ -9,3 +9,15 @@ Base2Ind.Views = {};
  * @type {{}}
  */
 Base2Ind.Scaffolding = {};
+
+/**
+ * This contains parts of the layout.
+ * @type {{}}
+ */
+Base2Ind.Layout = {};
+
+/**
+ * Defines the current theme
+ * @type {{}}
+ */
+Base2Ind.Theme = {};

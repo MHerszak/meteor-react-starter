@@ -47,7 +47,7 @@ class HomePage extends BindComponent
     {
         return(<Container>
         <Col l={12}>
-            <h5 className='header'>{this.props.headline}</h5>
+            <h5 className="center-align">{this.props.headline}</h5>
             <SearchBar
                 filterText={this.state.filterText}
                 onUserInput={this._handleUserInput} />

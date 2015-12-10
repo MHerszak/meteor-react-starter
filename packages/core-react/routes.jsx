@@ -4,10 +4,6 @@
 
 let {HomePage} = Base2Ind.Views;
 
-let styles = {
-    height:100,
-}
-
 FlowRouter.route('/', {
     name:'home',
     action: function(params, queryParams) {
@@ -15,7 +11,7 @@ FlowRouter.route('/', {
         ReactLayout.render(App, {
             content()
             {
-                return (<div style={styles}>
+                return (<div>
                     <HomePage
                         headline="Material design Components for React" />
                 </div>);

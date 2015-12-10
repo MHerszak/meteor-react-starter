@@ -53,6 +53,13 @@ This app should maintain several layouts. These are the ones applicable at the m
 
 ![Theme layout possibilities](https://cloud.githubusercontent.com/assets/4604432/11704021/3d03af7a-9ea1-11e5-83da-3728ab9d00d7.png)
 
+Current default theme has:
+  
+  * sidebar slide over main content
+  * sidebar on the left of the content
+  * sidebar shows automatically when there is enough screen width available and hides when there is not enough available (using media queries via window.matchMedia)
+
+![Default theme](https://cloud.githubusercontent.com/assets/4604432/11728456/2b08f86a-9f47-11e5-99cc-5fcf32c9af8e.png)
 ### upload
 This package is supposed to integrate upload functionality, to other services but also to a local space. One of the must haves is to integrate an overview of what media has been uploaded to your server. 
 ### email
