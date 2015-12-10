@@ -54,7 +54,7 @@ This app should maintain several layouts. These are the ones applicable at the m
 ![Theme layout possibilities](https://cloud.githubusercontent.com/assets/4604432/11704021/3d03af7a-9ea1-11e5-83da-3728ab9d00d7.png)
 
 ### upload
-This package is supposed to integrate upload functionality, to other services but also to a local space.
+This package is supposed to integrate upload functionality, to other services but also to a local space. One of the must haves is to integrate an overview of what media has been uploaded to your server. 
 ### email
 This is a simple server side email send on, e.g. user registers account.
 ### search
