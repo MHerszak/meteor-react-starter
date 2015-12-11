@@ -61,14 +61,15 @@ Package.onUse(function(api)
   api.imply(packages);
 
   api.addFiles([
-    './lib/modules.js',
-  ],['client']);
-
-  api.addFiles([
-    './lib/router.js',
     './lib/core.jsx',
+    './lib/router.js',
     './client.browserify.js',
   ],['client','server']);
+
+  api.addFiles([
+    './lib/modules.js',
+    './lib/menu.js',
+  ],['client']);
 
   api.addFiles([
     // Components Core

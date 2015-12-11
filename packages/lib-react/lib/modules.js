@@ -1,5 +1,10 @@
 /**
- * Template modules let you insert components in specific zones in the app's layout.
+ * @namespace for modules
+ * @type {{}}
+ */
+Base2Ind.modules = {};
+/**
+ * Modules to insert components in specific zones in your app's layout.
  * @namespace Base2Ind.modules
  *
  * @type {{add: (function(string, ({template: string, order: number}|Object[]))), remove: (function(string, string)), removeAll: (function(string)), get: (function(string): Object[]), addRoute: (function(string, string, string))}}
