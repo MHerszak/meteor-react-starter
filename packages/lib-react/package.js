@@ -10,6 +10,10 @@ Package.describe({
   documentation: 'README.md'
 });
 
+Npm.depends({
+  "react-mixin": "3.0.3",
+});
+
 Package.onUse(function(api)
 {
   api.versionsFrom('1.2.1');
@@ -31,21 +35,24 @@ Package.onUse(function(api)
     // collections schema and extended functionality
     'aldeed:simple-schema@1.4.0',
     'aldeed:collection2@2.5.0',
-    // theme
-    /*'izzilab:material-ui@0.2.3',*/
     // fonts
     'ixdi:material-design-iconic-font@2.1.5',
 
     // accounts ui
     /*'universe:modules@0.6.1',*/
     'universe:i18n@1.2.2',
-    'react-meteor-data@0.1.9',
+    'react-meteor-data@0.2.4',
     'service-configuration',
     'accounts-base',
     'accounts-oauth',
     'accounts-password',
     'accounts-facebook',
-    'accounts-ui'
+    'accounts-ui',
+
+    // making nmp packages work
+    'cosmos:browserify',
+
+    'kadira:dochead@1.2.2',
 
   ];
 
@@ -54,7 +61,13 @@ Package.onUse(function(api)
   api.imply(packages);
 
   api.addFiles([
+    './lib/modules.js',
+  ],['client']);
+
+  api.addFiles([
+    './lib/router.js',
     './lib/core.jsx',
+    './client.browserify.js',
   ],['client','server']);
 
   api.addFiles([
@@ -64,7 +77,8 @@ Package.onUse(function(api)
 
   api.export([
     // export the namespace
-    'Base2Ind'
+    'Base2Ind',
+    'ReactMixin',
   ]);
 
 });

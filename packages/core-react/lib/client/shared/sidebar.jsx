@@ -57,6 +57,10 @@ const styles = {
     },
 };
 
+/*let mixin = {
+    mixins:[ReactMeteorData]
+};*/
+
 class Sidebar extends React.Component {
     constructor(props) {
         super(props);
@@ -81,6 +85,14 @@ class Sidebar extends React.Component {
         this.onTouchMove = this.onTouchMove.bind(this);
         this.onTouchEnd = this.onTouchEnd.bind(this);
         this.onScroll = this.onScroll.bind(this);
+    }
+
+    getMeteorData()
+    {
+        return {
+            loggingIn: Meteor.loggingIn(),
+            currentUser:Meteor.user(),
+        };
     }
 
     getChildContext() {
@@ -334,6 +346,11 @@ class Sidebar extends React.Component {
         );
     }
 }
+
+/**
+ * This is necessary because there are no mixins available for ES6 and React Meteor still works with mixins.
+ */
+ReactMixin.onClass(Sidebar, {mixins:[ReactMeteorData]});
 
 Sidebar.contextTypes = {
     muiTheme: React.PropTypes.object,

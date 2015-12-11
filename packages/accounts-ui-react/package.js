@@ -32,6 +32,10 @@ Package.onUse(function (api) {
         './lib/routes.jsx',
     ],['client']);
 
+    api.addFiles([
+        './lib/server/accounts-config.js',
+    ],['server']);
+
     var languages = ["en"];
     var languagesPaths = languages.map(function (language) {
         return "./i18n/"+language+".i18n.json";

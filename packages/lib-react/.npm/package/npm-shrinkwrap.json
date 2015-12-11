@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "react-mixin": {
+      "version": "3.0.3",
+      "dependencies": {
+        "object-assign": {
+          "version": "4.0.1"
+        },
+        "smart-mixin": {
+          "version": "1.2.1"
+        }
+      }
+    }
+  }
+}

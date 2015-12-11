@@ -27,6 +27,21 @@ const styles = {
 };
 
 App = React.createClass({
+
+    mixins: [ReactMeteorData],
+
+    getMeteorData()
+    {
+        return {
+            loggingIn: Meteor.loggingIn(),
+            currentUser:Meteor.user(),
+        };
+    },
+
+    loading() {
+        return <div className="loading"></div>;
+    },
+
     getInitialState() {
         return {docked: false, open: false};
     },
