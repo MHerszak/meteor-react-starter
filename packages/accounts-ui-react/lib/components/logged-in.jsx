@@ -21,4 +21,4 @@ let LoggedIn = React.createClass({
     }
 });
 
-_.extend(Base2Ind,{LoggedIn});
+_.extend(Base2Ind.Components,{LoggedIn});

@@ -14,6 +14,32 @@ FlowRouter.removeFromQueryArray = function (key, value) {
     FlowRouter.setQueryParams(params);
 }
 
+/**
+ * Router functions that can be used to check whether you are logged in and should proceed or
+ * if you are not logged in and should be redirected.
+ *
+ * @type {{checkLoggedIn: (function(*, *)), redirectIfLoggedIn: (function(*, *))}}
+ */
+Base2Ind.Router =
+{
+    checkLoggedIn (ctx, redirect) {
+        if (!Meteor.userId()) {
+            redirect('/')
+        }
+    },
+
+    /**
+     * For public routes such as
+     * @param ctx
+     * @param redirect
+     */
+    redirectIfLoggedIn (ctx, redirect) {
+        if (Meteor.userId()) {
+            redirect('/')
+        }
+    }
+}
+
 Base2Ind.adminRoutes = FlowRouter.group({
     prefix: '/admin',
     name: 'admin',

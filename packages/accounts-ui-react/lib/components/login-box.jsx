@@ -1,15 +1,18 @@
-/*global ReactMeteorData */
+let {LoggedIn} = Base2Ind.Components;
 
 //instance of translate component in "accounts-ui" namespace
 const T = _i18n.createComponent(_i18n.createTranslator('accounts-ui'));
 
 LoginBox = React.createClass({
     displayName: 'LoginBox',
+
     propTypes: {
         registerLink: React.PropTypes.string,
         resetLink: React.PropTypes.string
     },
+
     mixins: [ReactMeteorData],
+
     getMeteorData () {
         return {
             user: Meteor.user()

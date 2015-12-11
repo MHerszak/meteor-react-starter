@@ -49,6 +49,48 @@ let notFound = "not Found";
 Base2Ind.Helper.render(App,<div>{notFound}</div>);
 
 ```
+## Available Route helpers
+
+```javascript
+/**
+ * Router functions that can be used to check whether you are logged in and should proceed or
+ * if you are not logged in and should be redirected.
+ * 
+ * @type {{checkLoggedIn: (function(*, *)), redirectIfLoggedIn: (function(*, *))}}
+ */
+Base2Ind.Router =
+{
+    checkLoggedIn (ctx, redirect) {
+        if (!Meteor.userId()) {
+            redirect('/')
+        }
+    },
+
+    /**
+     * For public routes such as 
+     * @param ctx
+     * @param redirect
+     */
+    redirectIfLoggedIn (ctx, redirect) {
+        if (Meteor.userId()) {
+            redirect('/')
+        }
+    }
+}
+```
+## Available Objects
+The following classes are available:
+
+```javascript
+/**
+ * Base2Ind.Theme includes all custom styles for your theme based on Material UI ThemeManager.
+ */
+_.extend(Base2Ind.Theme,{CustomTheme});
+/**
+ * Base2Ind.Components includes all custom components that do not ship with Material UI
+ */
+_.extend(Base2Ind.Components,{NavComponent});
+```
 
 ## Help is needed
 I am aiming to build in these packages, such as:

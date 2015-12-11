@@ -1,5 +1,6 @@
 Accounts.onLogin(function() {
     var path = FlowRouter.current().path;
+    console.log('path: ', path);
     // we only do it if the user is in the login page
     if(path === "/login"){
         FlowRouter.go("/");

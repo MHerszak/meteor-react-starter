@@ -39,7 +39,7 @@ const SidebarContent = (props) =>
         <MaterialTitlePanel title="Your Name" style={style}>
             <div style={stylesSC.content}>
 
-                <NavComponent navName="accounts"/>
+                <NavComponent navName="accounts" />
 
                 <div style={stylesSC.divider} />
 

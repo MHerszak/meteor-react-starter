@@ -29,12 +29,5 @@ FlowRouter.notFound = {
 
         let notFound = "not Found";
         Base2Ind.Helper.render(App,<div>{notFound}</div>);
-        /*ReactLayout.render(App, {
-            content()
-            {
-                let notFound = "not Found";
-                return (<div>{notFound}</div>);
-            }
-        });*/
     }
 };
