@@ -26,11 +26,13 @@ Package.onUse(function (api) {
         './lib/components/register-box.jsx',
         './lib/components/register-form.jsx',
         './lib/components/reset-password-box.jsx',
+
+        './lib/menu.js'
     ],['client']);
 
     api.addFiles([
         './lib/routes.jsx',
-    ],['client']);
+    ],['client','server']);
 
     api.addFiles([
         './lib/server/accounts-config.js',

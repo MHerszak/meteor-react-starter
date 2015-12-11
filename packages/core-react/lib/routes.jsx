@@ -8,15 +8,7 @@ FlowRouter.route('/', {
     name:'home',
     action: function(params, queryParams) {
 
-        ReactLayout.render(App, {
-            content()
-            {
-                return (<div>
-                    <HomePage
-                        headline="Material design Components for React" />
-                </div>);
-            }
-        });
+        Base2Ind.Helper.render(App,<HomePage headline="Material design Components for React" />);
     }
 });
 
@@ -34,12 +26,15 @@ FlowRouter.notFound = {
                 content: "noindex, nofollow"
             });
         }
-        ReactLayout.render(App, {
+
+        let notFound = "not Found";
+        Base2Ind.Helper.render(App,<div>{notFound}</div>);
+        /*ReactLayout.render(App, {
             content()
             {
                 let notFound = "not Found";
                 return (<div>{notFound}</div>);
             }
-        });
+        });*/
     }
 };

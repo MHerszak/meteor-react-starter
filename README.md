@@ -27,6 +27,29 @@ let BlueTheme =
 ```
 Check out the [ThemeManager] javascript file to understand the important fields.
 
+## Render Method
+This method is necessary to always return the correct render function.
+
+```javascript
+/**
+ * Render helper. This makes sure it returns always the same render function
+ * @type {{render: (function(*=, *))}}
+ */
+Base2Ind.Helper = {
+    render(layout,view)
+    {
+        return ReactLayout.render( layout, {content(){ return (view) }} );
+    }
+}
+
+/**
+ * Example
+ */
+let notFound = "not Found";
+Base2Ind.Helper.render(App,<div>{notFound}</div>);
+
+```
+
 ## Help is needed
 I am aiming to build in these packages, such as:
   

@@ -9,3 +9,9 @@ Base2Ind = {};
  * @type {{}}
  */
 Base2Ind.Classes = {};
+
+/**
+ * Build in components
+ * @type {{}}
+ */
+Base2Ind.Components = {};

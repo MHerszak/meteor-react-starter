@@ -67,12 +67,9 @@ Package.onUse(function(api)
   ],['client','server']);
 
   api.addFiles([
+    './lib/base.jsx',
     './lib/modules.js',
     './lib/menu.js',
-  ],['client']);
-
-  api.addFiles([
-    // Components Core
     './lib/bind-component.jsx',
   ],['client']);
 

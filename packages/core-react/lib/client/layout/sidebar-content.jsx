@@ -1,4 +1,5 @@
 const {MaterialTitlePanel} = Base2Ind.Layout;
+const {NavComponent} = Base2Ind.Components;
 
 const stylesSC = {
     sidebar: {
@@ -37,8 +38,11 @@ const SidebarContent = (props) =>
     return (
         <MaterialTitlePanel title="Your Name" style={style}>
             <div style={stylesSC.content}>
-                <a href="index.html" style={stylesSC.sidebarLink}>Home</a>
+
+                <NavComponent navName="accounts"/>
+
                 <div style={stylesSC.divider} />
+
                 {links}
             </div>
         </MaterialTitlePanel>

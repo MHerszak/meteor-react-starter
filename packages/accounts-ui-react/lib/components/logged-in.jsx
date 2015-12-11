@@ -3,7 +3,7 @@
 //instance of translate component in "accounts-ui" namespace
 const T = _i18n.createComponent(_i18n.createTranslator('accounts-ui'));
 
-LoggedIn = React.createClass({
+let LoggedIn = React.createClass({
     displayName: 'LoggedIn',
     render () {
         return (

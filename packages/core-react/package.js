@@ -40,8 +40,12 @@ Package.onUse(function(api)
     './lib/client/scaffolding/col.jsx',
     './lib/client/scaffolding/container.jsx',
 
+    // menu
+    './lib/client/menu/nav-component.jsx',
+
     // view components
     './lib/client/view/home-page.jsx',
+
     // shared components
     './lib/client/shared/sidebar.jsx', //test
     './lib/client/shared/top-bar.jsx',
@@ -54,7 +58,7 @@ Package.onUse(function(api)
 
   api.addFiles([
 
-    './routes.jsx',
+    './lib/routes.jsx',
 
   ],['client','server']);
 

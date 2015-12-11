@@ -49,6 +49,7 @@ ixdi:material-design-iconic-font@2.1.5
 izzilab:material-ui@0.2.3
 jquery@1.11.4
 jsx@0.2.3
+kadira:dochead@1.2.2
 kadira:flow-router@2.10.0
 kadira:react-layout@1.5.2
 launch-screen@1.0.4
@@ -75,7 +76,7 @@ promise@0.5.1
 random@1.0.5
 rate-limit@1.0.0
 react@0.14.1_1
-react-meteor-data@0.2.3
+react-meteor-data@0.2.4
 react-runtime@0.14.1_1
 react-runtime-dev@0.14.1
 react-runtime-prod@0.14.1

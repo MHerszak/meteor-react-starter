@@ -34,7 +34,7 @@ Base2Ind.menuItems =
 
         if (Array.isArray(item)) {
 
-            var items = item; // we're dealing with an Array, so let's add an "s"
+            var items = item;
             items.forEach( function (item) {
                 Base2Ind.menuItems[menu].push(item);
             });

@@ -3,8 +3,11 @@ const {
     IconButton,
     Styles,
     } = MUI;
+
 const { ThemeManager,
-    Typography} = Styles;
+    Typography
+    } = Styles;
+
 const {CustomTheme} = Base2Ind.Theme;
 
 const CANCEL_DISTANCE_ON_SCROLL = 20;
@@ -61,7 +64,8 @@ const styles = {
     mixins:[ReactMeteorData]
 };*/
 
-class Sidebar extends React.Component {
+class Sidebar extends React.Component
+{
     constructor(props) {
         super(props);
 
@@ -325,25 +329,27 @@ class Sidebar extends React.Component {
 
                 dragHandle = (
                     <div style={dragHandleStyle}
-                         onTouchStart={this.onTouchStart} onTouchMove={this.onTouchMove}
-                         onTouchEnd={this.onTouchEnd} onTouchCancel={this.onTouchEnd} />);
+                         onTouchStart={this.onTouchStart}
+                         onTouchMove={this.onTouchMove}
+                         onTouchEnd={this.onTouchEnd}
+                         onTouchCancel={this.onTouchEnd} />);
             }
         }
 
-        return (
+        return (<div {...rootProps}>
 
-            <div {...rootProps}>
                 <div style={sidebarStyle} ref="sidebar">
                     {this.props.sidebar}
                 </div>
                 <div style={overlayStyle}
-                     onClick={this.overlayClicked} onTouchTap={this.overlayClicked} />
+                     onClick={this.overlayClicked}
+                     onTouchTap={this.overlayClicked} />
+
                 <div style={contentStyle}>
                     {dragHandle}
                     {this.props.children}
                 </div>
-            </div>
-        );
+            </div>);
     }
 }
 
