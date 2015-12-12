@@ -4,9 +4,9 @@
  * they'll be unaffected.
  */
 Accounts.onLogin(function () {
-    if (FlowRouter.current().route.group.name === 'public') {
+    /*if (FlowRouter.current().route.group.name === 'public') {
         FlowRouter.go('dashboard')
-    }
+    }*/
 });
 
 /*

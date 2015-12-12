@@ -23,6 +23,8 @@ Package.onUse(function(api)
     'ecmascript',
     'react@0.14.1_1',
     'jquery',
+    'session',
+    'check',
 
     // css
     'fourseven:scss@3.4.1',
@@ -35,12 +37,17 @@ Package.onUse(function(api)
     // collections schema and extended functionality
     'aldeed:simple-schema@1.5.0',
     'aldeed:collection2@2.6.0',
+    'aldeed:autoform@5.8.0',
+    'poetic:react-autoform-material-ui@0.1.2_1',
     // fonts
     'ixdi:material-design-iconic-font@2.1.5',
-
+    // helpers for insert update on collections
+    'matb33:collection-hooks@0.8.0',
     // accounts ui
     /*'universe:modules@0.6.1',*/
     'universe:i18n@1.2.2',
+    /*'tap:i18n@1.7.0',*/
+
     'react-meteor-data@0.2.4',
     'service-configuration',
     'accounts-base',
@@ -63,6 +70,7 @@ Package.onUse(function(api)
   api.addFiles([
     './lib/core.jsx',
     './lib/router.js',
+    './lib/collections.js',
     './client.browserify.js',
   ],['client','server']);
 

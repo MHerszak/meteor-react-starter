@@ -20,3 +20,5 @@ base2ind:lib-react
 base2ind:core-react
 base2ind:accounts-ui-react
 base2ind:react-search
+base2ind:i18n
+base2ind:settings
