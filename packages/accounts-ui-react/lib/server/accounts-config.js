@@ -1,9 +1,11 @@
-Accounts.onLogin(function() {
-    var path = FlowRouter.current().path;
-    console.log('path: ', path);
-    // we only do it if the user is in the login page
-    if(path === "/login"){
-        FlowRouter.go("/");
+/**
+ * This limits the redirect to routes which are part of the public group,
+ * so if the user in question navigates to a different private route (profile, for example),
+ * they'll be unaffected.
+ */
+Accounts.onLogin(function () {
+    if (FlowRouter.current().route.group.name === 'public') {
+        FlowRouter.go('dashboard')
     }
 });
 

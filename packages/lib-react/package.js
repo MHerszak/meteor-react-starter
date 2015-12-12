@@ -33,8 +33,8 @@ Package.onUse(function(api)
     'kadira:flow-router@2.10.0',
     'kadira:react-layout@1.5.0',
     // collections schema and extended functionality
-    'aldeed:simple-schema@1.4.0',
-    'aldeed:collection2@2.5.0',
+    'aldeed:simple-schema@1.5.0',
+    'aldeed:collection2@2.6.0',
     // fonts
     'ixdi:material-design-iconic-font@2.1.5',
 
@@ -52,7 +52,7 @@ Package.onUse(function(api)
     // making nmp packages work
     'cosmos:browserify',
 
-    'kadira:dochead@1.2.2',
+    'kadira:dochead@1.4.0',
 
   ];
 

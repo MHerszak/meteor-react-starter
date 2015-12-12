@@ -75,7 +75,7 @@ class NavComponent extends React.Component
 }
 
 NavComponent.propTypes = {
-    navName:React.PropTypes.string.required,
+    navName:React.PropTypes.string.isRequired,
     menuType:React.PropTypes.string,
     /*menuItems:React.PropTypes.array,*/
     muiTheme:React.PropTypes.object,

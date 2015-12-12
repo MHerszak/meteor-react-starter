@@ -1,4 +1,4 @@
-let{utils} = Base2Ind;
+let {Utils} = Base2Ind.Helper;
 /*import i18n from '{universe:i18n}';*/
 
 //instance of translate component in "accounts-ui" namespace
@@ -70,7 +70,7 @@ PasswordForm = React.createClass({
         }
     },
     render () {
-        if (!utils.hasPasswordService()) {
+        if (!Utils.hasPasswordService()) {
             return <div></div>;
         }
         let isRegistration = (this.props.type === 'register');

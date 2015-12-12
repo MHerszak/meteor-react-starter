@@ -1,4 +1,5 @@
 let {LoggedIn} = Base2Ind.Components;
+let {Utils} = Base2Ind.Helper;
 
 //instance of translate component in "accounts-ui" namespace
 const T = _i18n.createComponent(_i18n.createTranslator('accounts-ui'));
@@ -40,8 +41,8 @@ LoginBox = React.createClass({
                     <h2 className="ui center aligned dividing header"><T>sign_in</T></h2>
 
                     <LoginForm
-                      onError={ utils.onError.bind(this) }
-                      clearErrors={ utils.clearErrors.bind(this) }
+                      onError={ Utils.onError.bind(this) }
+                      clearErrors={ Utils.clearErrors.bind(this) }
                       />
                 </div>
 

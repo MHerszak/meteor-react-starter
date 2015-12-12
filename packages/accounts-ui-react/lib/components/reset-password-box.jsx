@@ -1,7 +1,4 @@
-/*global ReactMeteorData */
-/*let{ErrorMessages,
-    LoggedIn} = Base2Ind;*/
-
+let {Utils} = Base2Ind.Helper;
 //instance of translate component in "accounts-ui" namespace
 const T = _i18n.createComponent(_i18n.createTranslator('accounts-ui'));
 

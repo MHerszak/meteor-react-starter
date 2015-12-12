@@ -1,8 +1,8 @@
-/*global ReactMeteorData */
+let {Utils} = Base2Ind.Helper;
 /*let{ErrorMessages,
     /!*RegisterForm,*!/
     LoggedIn,
-    utils} = Base2Ind;*/
+    Utils} = Base2Ind;*/
 
 //instance of translate component in "accounts-ui" namespace
 const T = _i18n.createComponent(_i18n.createTranslator('accounts-ui'));
@@ -43,8 +43,8 @@ RegisterBox = React.createClass({
                     </h2>
 
                     <RegisterForm
-                        onError={ utils.onError.bind(this) }
-                        clearErrors={ utils.clearErrors.bind(this) }
+                        onError={ Utils.onError.bind(this) }
+                        clearErrors={ Utils.clearErrors.bind(this) }
                         />
 
                 </div>

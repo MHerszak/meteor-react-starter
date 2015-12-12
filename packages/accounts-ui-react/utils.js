@@ -1,4 +1,4 @@
-utils = {
+let Utils = {
     capitalize (string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     },
@@ -44,4 +44,4 @@ utils = {
     }
 };
 
-_.extend(Base2Ind,{utils});
+_.extend(Base2Ind.Helper,{Utils});

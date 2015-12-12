@@ -1,4 +1,4 @@
-
+let {Utils} = Base2Ind.Helper;
 //instance of translate component in "accounts-ui" namespace
 const T = _i18n.createComponent(_i18n.createTranslator('accounts-ui'));
 
@@ -7,8 +7,8 @@ class Login extends React.Component{
     {
         return(
             <LoginForm
-                onError={ utils.onError.bind(this) }
-                clearErrors={ utils.clearErrors.bind(this) }
+                onError={ Utils.onError.bind(this) }
+                clearErrors={ Utils.clearErrors.bind(this) }
             />
         )
     }
@@ -48,8 +48,8 @@ ComboBox = React.createClass({
                             <h2 className="ui center aligned dividing header"><T>sign_in</T></h2>
 
                             <LoginForm
-                                onError={ utils.onError.bind(this) }
-                                clearErrors={ utils.clearErrors.bind(this) }
+                                onError={ Utils.onError.bind(this) }
+                                clearErrors={ Utils.clearErrors.bind(this) }
                             />
                         </div>
                         <div className="ui vertical divider">
@@ -59,8 +59,8 @@ ComboBox = React.createClass({
                             <h2 className="ui center aligned dividing header"><T>sign_up</T></h2>
 
                             <RegisterForm
-                                onError={ utils.onError.bind(this) }
-                                clearErrors={ utils.clearErrors.bind(this) }
+                                onError={ Utils.onError.bind(this) }
+                                clearErrors={ Utils.clearErrors.bind(this) }
                             />
                         </div>
                     </div>

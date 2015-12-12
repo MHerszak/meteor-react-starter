@@ -1,6 +1,6 @@
-/*let{utils} = Base2Ind;*/
+let {Utils} = Base2Ind.Helper;
 
-/*import utils from '../utils';
+/*import Utils from '../Utils';
 import i18n from '{universe:i18n}';*/
 
 //instance of translate component in "accounts-ui" namespace
@@ -22,7 +22,7 @@ OAuthButton = React.createClass({
     handleClick () {
         this.setState({loading: true});
 
-        utils.performOAuthLogin(this.props.service, err => {
+        Utils.performOAuthLogin(this.props.service, err => {
             this.setState({
                 loading: false,
                 error: err ? err.message : null
