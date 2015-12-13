@@ -71,15 +71,18 @@ Package.onUse(function(api)
 
   api.addFiles([
     './lib/core.jsx',
+    './lib/callbacks.js',
     './lib/router.js',
+    './lib/modules.js',
+    './lib/menu.js',
     './lib/collections.js',
+    './lib/utils.js',
     './client.browserify.js',
+    './lib/base.js',
   ],['client','server']);
 
   api.addFiles([
-    './lib/base.jsx',
-    './lib/modules.js',
-    './lib/menu.js',
+
     './lib/bind-component.jsx',
   ],['client']);
 

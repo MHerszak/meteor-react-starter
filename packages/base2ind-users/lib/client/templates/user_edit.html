@@ -1,0 +1,9 @@
+<template name="user_edit">
+	{{#with user}}
+    {{#if canEdit this}}
+      {{> modules zone="profileEdit" moduleData=this}}
+    {{else}}
+      {{> no_rights}}
+    {{/if}}
+  {{/with}}
+</template>

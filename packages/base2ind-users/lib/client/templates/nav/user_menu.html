@@ -1,0 +1,13 @@
+<template name="user_menu">
+  <div class="user-menu-wrapper {{moduleClass}}">
+    {{#if isLoggedIn}}
+      {{> menuComponent menuName="user"  menuLabelTemplate="user_menu_label" menuItems=menuItems menuClass=menuClass}}
+    {{/if}}
+  </div>
+</template>
+
+<template name="custom_user_menu">
+  {{#if isLoggedIn}}
+    {{> menuComponent menuName="user" menuLabel=menuLabel menuLabelTemplate="user_menu_label" menuItems=menuItems menuClass=menuClass}}
+  {{/if}}
+</template>

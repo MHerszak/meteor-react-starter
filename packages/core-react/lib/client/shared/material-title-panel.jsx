@@ -9,7 +9,7 @@ const stylesMTP = {
 const MaterialTitlePanel = (props) => {
     const rootStyle = props.style ? {...stylesMTP.root, ...props.style} : stylesMTP.root,
         user = Meteor.user(),
-        gravatar = props.gravatar ? <Gravatar email="michel.herszak@gmail.com" /> : <div></div>;
+        gravatar = props.gravatar ? <Gravatar email="michel.herszak@gmail.com" shape="circle" /> : <div></div>;
 
     return (
         <div style={rootStyle}>

@@ -1,0 +1,9 @@
+<template name="user_list_roles">
+    {{#if getRoles this}}
+      {{getRoles this}}
+    {{else}}
+        <a href="" id="addUserRoles">
+            Add roles...
+        </a>
+    {{/if}}
+</template>

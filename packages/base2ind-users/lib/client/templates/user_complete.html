@@ -1,0 +1,17 @@
+<template name="user_complete">
+
+    <div class="row">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>{{_ "please_fill_in_missing_information_to_finish_signing_up"}}</h5>
+
+            </div>
+            <div class="ibox-content">
+                <p>
+                    {{> quickForm collection="Meteor.users" doc=user id="completeUserForm" template="bootstrap3-horizontal" input-col-class="controls" type="method-update" meteormethod="completeUserProfile" fields=requiredFields}}
+                </p>
+            </div>
+        </div>
+    </div>
+
+</template>

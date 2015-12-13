@@ -1,0 +1,21 @@
+<template name="user_menu_label">
+    <div class="dropdown profile-element">
+        <span>{{> avatar userId=user._id shape="circle"}}</span>
+        <a data-toggle="dropdown" href="#">
+            <span class="clear">
+                <span class="block m-t-xs">
+                    <strong class="text-muted font-bold">{{user.getDisplayName}}</strong>
+                </span>
+                <!--{{#if user.appuser.jobTitle}}<span class="text-muted block">{{user.appuser.jobTitle}}</span>{{/if}}-->
+            </span>
+        </a>
+        <!--<ul class="dropdown-menu animated fadeInRight m-t-xs">
+            {{> menuIconExpand}}
+            {{> menuIconCollapse}}
+        </ul>-->
+    </div>
+    <div class="logo-element">
+        PT+
+    </div>
+
+</template>

@@ -1,0 +1,9 @@
+<template name="user_controller">
+  <div class="ibox">
+    <div class="ibox-content">
+      {{#loader ready=Template.subscriptionsReady}}
+        {{> Template.dynamic template=userTemplate data=data}}
+      {{/loader}}
+    </div>
+  </div>
+</template>
