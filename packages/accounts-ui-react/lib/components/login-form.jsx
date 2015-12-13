@@ -1,6 +1,6 @@
 let {Utils} = Base2Ind.Helper;
-//instance of translate component in "accounts-ui" namespace
-const T = _i18n.createComponent(_i18n.createTranslator('accounts-ui'));
+//instance of translate component in namespace
+const T = _i18n.createComponent(_i18n.createTranslator(NAMESPACE));
 
 LoginForm = React.createClass({
     displayName: 'LoginForm',

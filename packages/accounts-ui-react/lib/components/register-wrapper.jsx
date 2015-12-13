@@ -1,11 +1,6 @@
 let {Utils} = Base2Ind.Helper;
-/*let{ErrorMessages,
-    /!*RegisterForm,*!/
-    LoggedIn,
-    Utils} = Base2Ind;*/
-
-//instance of translate component in "accounts-ui" namespace
-const T = _i18n.createComponent(_i18n.createTranslator('accounts-ui'));
+//instance of translate component in namespace
+const T = _i18n.createComponent(_i18n.createTranslator(NAMESPACE));
 
 RegisterBox = React.createClass({
     displayName: 'RegisterBox',

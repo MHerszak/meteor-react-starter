@@ -16,16 +16,16 @@ Package.onUse(function (api) {
 
     api.addFiles([
         'utils.js',
-        './lib/components/combo-box.jsx',
+        './lib/namespace.js',
         './lib/components/error-messages.jsx',
         './lib/components/logged-in.jsx',
-        './lib/components/login-box.jsx',
+        './lib/components/login-wrapper.jsx',
         './lib/components/login-form.jsx',
         './lib/components/oauth-button.jsx',
         './lib/components/password-form.jsx',
-        './lib/components/register-box.jsx',
+        './lib/components/register-wrapper.jsx',
         './lib/components/register-form.jsx',
-        './lib/components/reset-password-box.jsx',
+        './lib/components/reset-password-wrapper.jsx',
 
         './lib/menu.js'
     ],['client']);

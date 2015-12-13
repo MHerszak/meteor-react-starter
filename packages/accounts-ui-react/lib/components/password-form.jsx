@@ -1,8 +1,7 @@
 let {Utils} = Base2Ind.Helper;
-/*import i18n from '{universe:i18n}';*/
 
-//instance of translate component in "accounts-ui" namespace
-const T = _i18n.createComponent(_i18n.createTranslator('accounts-ui'));
+//instance of translate component in namespace
+const T = _i18n.createComponent(_i18n.createTranslator(NAMESPACE));
 
 PasswordForm = React.createClass({
     displayName: 'PasswordForm',
