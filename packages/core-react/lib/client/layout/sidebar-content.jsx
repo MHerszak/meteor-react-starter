@@ -36,7 +36,7 @@ const SidebarContent = (props) =>
     }
 
     return (
-        <MaterialTitlePanel title="Your Name" style={style}>
+        <MaterialTitlePanel title="Your Name" gravatar={true} style={style}>
             <div style={stylesSC.content}>
 
                 <NavComponent navName="accounts" />

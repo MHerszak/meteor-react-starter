@@ -38,7 +38,7 @@ Package.onUse(function(api)
     'aldeed:simple-schema@1.5.0',
     'aldeed:collection2@2.6.0',
     'aldeed:autoform@5.8.0',
-    'poetic:react-autoform-material-ui@0.1.2_1',
+    /*'poetic:react-autoform-material-ui@0.1.2_1',*/ // not really a good choice
     // fonts
     'ixdi:material-design-iconic-font@2.1.5',
     // helpers for insert update on collections
@@ -60,6 +60,8 @@ Package.onUse(function(api)
     'cosmos:browserify',
 
     'kadira:dochead@1.4.0',
+
+    'browserstudios:gravatar-react@0.0.1',
 
   ];
 

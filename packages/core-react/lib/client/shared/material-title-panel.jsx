@@ -7,11 +7,15 @@ const stylesMTP = {
 };
 
 const MaterialTitlePanel = (props) => {
-    const rootStyle = props.style ? {...stylesMTP.root, ...props.style} : stylesMTP.root;
+    const rootStyle = props.style ? {...stylesMTP.root, ...props.style} : stylesMTP.root,
+        user = Meteor.user(),
+        gravatar = props.gravatar ? <Gravatar email="michel.herszak@gmail.com" /> : <div></div>;
 
     return (
         <div style={rootStyle}>
-            <div style={stylesMTP.header}>{props.title}</div>
+            <div style={stylesMTP.header}>
+                {gravatar}
+                {props.title}</div>
             {props.children}
         </div>
     );
