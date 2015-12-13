@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'base2ind:react-search',
+  name: 'base2ind:base2ind-search-react',
   version: '0.0.1',
   // Brief, one-line summary of the package.
   summary: '',
@@ -37,6 +37,6 @@ Package.onUse(function(api) {
 Package.onTest(function(api) {
   api.use('ecmascript');
   api.use('tinytest');
-  api.use('base2ind:react-search');
-  api.addFiles('react-search-tests.js');
+  api.use('base2ind:base2ind-search-react');
+  api.addFiles('base2ind-search-react-tests.js');
 });

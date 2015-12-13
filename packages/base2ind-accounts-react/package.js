@@ -1,5 +1,5 @@
 Package.describe({
-    name: 'base2ind:accounts-ui-react',
+    name: 'base2ind:base2ind-accounts-react',
     version: '0.0.1',
     summary: 'Internal accounts system for starter package',
     documentation: 'README.md',
