@@ -1,16 +1,14 @@
 injectTapEventPlugin();
 
-//const MenuItem = MUI.Libs.MenuItem;
 const {CustomTheme} = Base2Ind.Theme;
-//const {TopBar} = Base2Ind.Views;
-//const {Container} = Base2Ind.Scaffolding;
+
 const {SidebarContent,
-    MaterialTitlePanel} = Base2Ind.Layout;
+    MaterialTitlePanel,
+    Sidebar} = Base2Ind.Layout;
 
 const {
     AppCanvas,
     Styles,
-    Sidebar,
     } = MUI;
 
 const { ThemeManager} = Styles;
@@ -28,7 +26,11 @@ const styles = {
 
 App = React.createClass({
 
-    mixins: [ReactMeteorData],
+    mixins: [ReactMeteorData/*StylePropable*/],
+
+    childContextTypes: {
+        muiTheme: React.PropTypes.object
+    },
 
     getMeteorData()
     {
@@ -43,23 +45,24 @@ App = React.createClass({
     },
 
     getInitialState() {
-        return {docked: false, open: false};
-    },
-
-    childContextTypes: {
-        muiTheme: React.PropTypes.object
+        return {
+            docked: false,
+            open: false,
+            //muiTheme: this.context.muiTheme ? this.context.muiTheme : ThemeManager.getMuiTheme(CustomTheme),
+        };
     },
 
     getChildContext() {
         return {
-            muiTheme: ThemeManager.getMuiTheme(CustomTheme)
+            muiTheme: this.state.muiTheme,
         };
     },
 
-    getInitialState() {
-        return {
-            muiTheme: this.context.muiTheme ? this.context.muiTheme : ThemeManager.getMuiTheme(CustomTheme),
-        };
+    //to update theme inside state whenever a new theme is passed down
+    //from the parent / owner using context
+    componentWillReceiveProps(nextProps, nextContext) {
+        let newMuiTheme = nextContext.muiTheme ? nextContext.muiTheme : this.state.muiTheme;
+        this.setState({muiTheme: newMuiTheme});
     },
 
     componentWillMount() {
@@ -88,19 +91,57 @@ App = React.createClass({
         }
     },
 
-    render() {
+    getSpacing() {
+        return this.state.muiTheme.rawTheme.spacing;
+    },
+
+    /*getStyles()
+    {
+        const rawTheme = this.state.muiTheme.rawTheme;
+
+        let style = {
+            root:{
+                backgroundColor: rawTheme.color,
+            },
+            menu: {
+                overflowY: 'auto',
+                overflowX: 'hidden',
+                height: '100%',
+                borderRadius: '0',
+            },
+            overlay: {
+                /!*zIndex: rawTheme.zIndex.leftNavOverlay,*!/
+                pointerEvents: this.state.open ? 'auto' : 'none', // Bypass mouse events when left nav is closing.
+            },
+            menuItem: {
+                height: rawTheme.spacing.desktopLeftNavMenuItemHeight,
+                lineHeight: rawTheme.spacing.desktopLeftNavMenuItemHeight + 'px',
+            },
+            rootWhenOpenRight: {
+                left: 'auto',
+                right: 0,
+            },
+        };
+
+        return style;
+    },*/
+
+    render()
+    {
+        //let styles = this.getStyles();
+
         const sidebar = <SidebarContent />;
 
         const contentHeader = (<span>
             {!this.state.docked &&<a onClick={this.toggleOpen} href="#" style={styles.contentHeaderMenuLink}>=</a>}
-                <span> meteor-react-starter</span>
+                <span> title</span>
       </span>);
 
         const sidebarProps = {
             sidebar: sidebar,
             docked: this.state.docked,
             open: this.state.open,
-            onSetOpen: this.onSetOpen,
+            onSetOpen: this.onSetOpen
         };
 
         return (

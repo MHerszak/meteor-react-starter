@@ -101,9 +101,16 @@ class Sidebar extends React.Component
 
     getChildContext() {
         return {
-            muiTheme: ThemeManager.getMuiTheme(CustomTheme)
+            muiTheme: this.state.muiTheme,
         };
     }
+
+    /*componentWillMount()
+    {
+        this.state = {
+            muiTheme: this.context.muiTheme ? this.context.muiTheme : ThemeManager.getMuiTheme(CustomTheme),
+        }
+    }*/
 
     componentDidMount() {
         this.saveSidebarWidth();
@@ -310,7 +317,8 @@ class Sidebar extends React.Component
         }
 
         if (useTouch) {
-            if (this.props.open) {
+            if (this.props.open)
+            {
                 rootProps.onTouchStart = this.onTouchStart;
                 rootProps.onTouchMove = this.onTouchMove;
                 rootProps.onTouchEnd = this.onTouchEnd;
@@ -413,4 +421,4 @@ Sidebar.defaultProps = {
     onSetOpen: () => {},
 };
 
-_.extend(MUI,{Sidebar});
+_.extend(Base2Ind.Layout,{Sidebar});

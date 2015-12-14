@@ -16,7 +16,6 @@ Package.onUse(function(api)
 
   var packages = [
     'base2ind:lib-react@0.0.1', // no dependencies
-    'izzilab:material-ui@0.2.3'
     //'base2ind:theme-react@0.0.1', // base2ind:lib-react
   ];
 
@@ -50,8 +49,8 @@ Package.onUse(function(api)
     './lib/client/shared/sidebar.jsx', //test
     './lib/client/shared/top-bar.jsx',
     './lib/client/shared/material-title-panel.jsx',
+    './lib/client/shared/sidebar-content.jsx',
 
-    './lib/client/layout/sidebar-content.jsx',
     './lib/client/layout/default-layout.jsx',
 
   ],['client']);

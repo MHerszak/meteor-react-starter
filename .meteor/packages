@@ -18,7 +18,8 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 izzilab:material-ui
 base2ind:lib-react
 base2ind:core-react
-base2ind:accounts-ui-react
-base2ind:react-search
+base2ind:base2ind-accounts-react
+base2ind:base2ind-search-react
 base2ind:i18n
 base2ind:settings
+base2ind:users

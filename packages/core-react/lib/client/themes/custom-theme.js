@@ -34,12 +34,18 @@ let CustomTheme =
         disabledColor: ColorManipulator.fade(Colors.darkBlack, 0.3),
     },
     header: {
-        backgroundColor: '#03a9f4',
-        color: 'white',
-        padding: '16px',
+        backgroundColor: color.darkslategray,
         fontSize: '1.5em',
+    },
+    subHeader: {
+        backgroundColor: color.coral,
+        fontSize: '1.1em',
+    },
+    headerCommon:{
+        padding: '10px',
         height:75,
         lineHeight:"40px",
+        color: 'white',
     },
     font:{
         fontFamily: this.fontFamily,

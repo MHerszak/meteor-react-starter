@@ -1,4 +1,5 @@
 let {Utils} = Base2Ind.Helper;
+let {LoggedIn} = Base2Ind.Components;
 //instance of translate component in namespace
 const T = _i18n.createComponent(_i18n.createTranslator(NAMESPACE));
 

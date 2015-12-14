@@ -1,5 +1,6 @@
 const {MaterialTitlePanel} = Base2Ind.Layout;
 const {NavComponent} = Base2Ind.Components;
+const {CustomTheme} = Base2Ind.Theme;
 
 const stylesSC = {
     sidebar: {
