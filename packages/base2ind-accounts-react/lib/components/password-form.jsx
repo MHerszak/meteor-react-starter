@@ -34,7 +34,7 @@ PasswordForm = React.createClass({
                     this.setState({loading: false});
 
                     if (err && err.error === 400) {
-                        onError(_i18n.__('accounts-ui', 'invalid_usename_or_password'));
+                        onError(_i18n.__(NAMESPACE, 'invalid_usename_or_password'));
                     } else if (err) {
                         onError(err.reason || _i18n.__('accounts-ui', 'unknown_error'));
                     } else {
@@ -47,7 +47,7 @@ PasswordForm = React.createClass({
             var passwordNode2 = this.refs.password2;
 
             if (passwordNode.value !== passwordNode2.value) {
-                onError(i18n.__('accounts-ui', 'passwords_dont_match'));
+                onError(i18n.__(NAMESPACE, 'passwords_dont_match'));
 
                 return;
             }
@@ -60,7 +60,7 @@ PasswordForm = React.createClass({
             }, (err) => {
                 this.setState({loading: false});
                 if (err) {
-                    onError(err.reason || i18n.__('accounts-ui', 'unknown_error'));
+                    onError(err.reason || i18n.__(NAMESPACE, 'unknown_error'));
                 } else {
                     clearErrors();
                     // this.refs.form.reset();
@@ -82,7 +82,7 @@ PasswordForm = React.createClass({
                 <div className="required field">
                     <label><T>email</T></label>
                     <input type="email"
-                           placeholder={ _i18n.__('accounts-ui', 'email') }
+                           placeholder={ _i18n.__(NAMESPACE, 'email') }
                            ref="email"
                     />
                 </div>
@@ -91,7 +91,7 @@ PasswordForm = React.createClass({
                     <label><T>password</T></label>
                     <input
                         type="password"
-                        placeholder={ _i18n.__('accounts-ui', 'password') }
+                        placeholder={ _i18n.__(NAMESPACE, 'password') }
                         ref="password"/>
                 </div>
 
@@ -100,7 +100,7 @@ PasswordForm = React.createClass({
                     <label><T>repeat_password</T></label>
                     <input
                         type="password"
-                        placeholder={ _i18n.__('accounts-ui', 'repeat_password') }
+                        placeholder={ _i18n.__(NAMESPACE, 'repeat_password') }
                         ref="password2"/>
                 </div>
                     : ''}
@@ -108,8 +108,8 @@ PasswordForm = React.createClass({
                 <button type="submit"
                         className="ui fluid large primary button">
                     { isRegistration ?
-                        _i18n.__('accounts-ui', 'sign_up') :
-                        _i18n.__('accounts-ui', 'sign_in') }
+                        _i18n.__(NAMESPACE, 'sign_up') :
+                        _i18n.__(NAMESPACE, 'sign_in') }
                 </button>
             </form>
         );

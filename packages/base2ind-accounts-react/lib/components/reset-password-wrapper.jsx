@@ -26,7 +26,7 @@ ResetPasswordBox = React.createClass({
         let email = this.refs.email.value;
 
         if (!email) {
-            this.setState({error: _i18n.__('accounts-ui', 'you_need_to_provide_email')});
+            this.setState({error: _i18n.__(NAMESPACE, 'you_need_to_provide_email')});
             return;
         }
 
@@ -87,7 +87,7 @@ ResetPasswordBox = React.createClass({
 
                             <div className="ui fluid input">
                                 <input type="email"
-                                       placeholder={_i18n.__('accounts-ui', 'email')}
+                                       placeholder={_i18n.__(NAMESPACE, 'email')}
                                        ref="email"
                                     />
                             </div>

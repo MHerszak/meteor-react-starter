@@ -21,7 +21,7 @@ LoginForm = React.createClass({
                         return (
                             <OAuthButton
                                 service={service}
-                                text={`${_i18n.__('accounts-ui', 'sign_in_with')} ${Utils.capitalize(service)}`}
+                                text={`${_i18n.__(NAMESPACE, 'sign_in_with')} ${Utils.capitalize(service)}`}
                                 key={service}
                                 />
                         );
