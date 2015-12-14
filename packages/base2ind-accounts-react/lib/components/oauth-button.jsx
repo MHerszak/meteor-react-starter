@@ -37,7 +37,7 @@ OAuthButton = React.createClass({
         if (this.state.error) {
             return (
                 <button
-                    className="ui fluid negative disabled button"
+                    className="btn btn-flat"
                     style={{marginBottom: 10}}>
                     <i className="warning circle icon"></i> {this.state.error}
                 </button>
@@ -47,19 +47,21 @@ OAuthButton = React.createClass({
         if (this.state.loading) {
             return (
                 <button
-                    className={`ui fluid button ${service} loading`}
+                    className={`btn btn-flat ${service} loading`}
                     style={{marginBottom: 10}}>
                     <T>loading</T>
                 </button>
             );
         }
 
+        let text = this.props.text ? "icon " + this.props.text : this.props.text;
+
         return (
             <button
-                className={`ui fluid button ${service}`}
+                className={`btn btn-flat ${service}`}
                 style={{marginBottom: 10}}
                 onClick={this.handleClick}>
-                <i className={`${service} icon`}></i> {this.props.text}
+                {text}
             </button>
         );
     }

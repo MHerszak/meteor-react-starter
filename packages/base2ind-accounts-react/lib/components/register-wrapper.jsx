@@ -1,10 +1,12 @@
 let {Utils} = Base2Ind.Helper;
-let {LoggedIn} = Base2Ind.Components;
+const {LoggedIn,
+    PaperWrapper
+    } = Base2Ind.Components;
 //instance of translate component in namespace
 const T = _i18n.createComponent(_i18n.createTranslator(NAMESPACE));
 
-RegisterBox = React.createClass({
-    displayName: 'RegisterBox',
+RegisterWrapper = React.createClass({
+    displayName: 'RegisterWrapper',
     propTypes: {
         loginLink: React.PropTypes.string
     },
@@ -31,12 +33,12 @@ RegisterBox = React.createClass({
 
         const { clearErrors, onError } = this.props;
 
-        return (<div>
+        return (<PaperWrapper>
                 <div className="ui large top attached segment">
 
-                    <h2 className="ui center aligned dividing header">
+                    <div className="center">
                         <T>sign_up</T>
-                    </h2>
+                    </div>
 
                     <RegisterForm
                         onError={ Utils.onError.bind(this) }
@@ -46,7 +48,7 @@ RegisterBox = React.createClass({
                 </div>
 
                 {this.props.loginLink ?
-                    <div className="ui large bottom attached info icon message">
+                    <div>
                         <i className="user icon"></i>
                         <T>already_have_an_account</T>
                         <a href={this.props.loginLink}>&nbsp;<T>click_to_login</T></a>
@@ -54,8 +56,8 @@ RegisterBox = React.createClass({
                     : ''}
 
                 { this.renderErrorMessages() }
-        </div>);
+        </PaperWrapper>);
     }
 });
 
-_.extend(Base2Ind,{RegisterBox});
+_.extend(Base2Ind,{RegisterWrapper});

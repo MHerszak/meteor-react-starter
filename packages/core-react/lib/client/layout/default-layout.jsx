@@ -48,7 +48,7 @@ App = React.createClass({
         return {
             docked: false,
             open: false,
-            //muiTheme: this.context.muiTheme ? this.context.muiTheme : ThemeManager.getMuiTheme(CustomTheme),
+            muiTheme: this.context.muiTheme ? this.context.muiTheme : ThemeManager.getMuiTheme(CustomTheme),
         };
     },
 
@@ -97,7 +97,7 @@ App = React.createClass({
 
     /*getStyles()
     {
-        const rawTheme = this.state.muiTheme.rawTheme;
+        //const rawTheme = this.state.muiTheme.rawTheme;
 
         let style = {
             root:{
@@ -135,6 +135,8 @@ App = React.createClass({
         const contentHeader = (<span>
             {!this.state.docked &&<a onClick={this.toggleOpen} href="#" style={styles.contentHeaderMenuLink}>=</a>}
                 <span> title</span>
+            <div>
+        </div>
       </span>);
 
         const sidebarProps = {
@@ -144,16 +146,16 @@ App = React.createClass({
             onSetOpen: this.onSetOpen
         };
 
-        return (
-        <AppCanvas>
-            <Sidebar {...sidebarProps}>
-                <MaterialTitlePanel title={contentHeader}>
-                    <div style={styles.content}>
-                        {this.props.content()}
-                    </div>
-                </MaterialTitlePanel>
-            </Sidebar>
-        </AppCanvas>
-        );
+        return (<div>
+            <AppCanvas>
+                <Sidebar {...sidebarProps}>
+                    <MaterialTitlePanel title={contentHeader}>
+                        <div style={styles.content}>
+                            {this.props.content()}
+                        </div>
+                    </MaterialTitlePanel>
+                </Sidebar>
+            </AppCanvas>
+        </div>);
     },
 });

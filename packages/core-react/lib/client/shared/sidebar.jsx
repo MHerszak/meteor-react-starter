@@ -1,5 +1,6 @@
 const {
     AppBar,
+    Paper,
     IconButton,
     Styles,
     } = MUI;
@@ -11,6 +12,8 @@ const { ThemeManager,
 const {CustomTheme} = Base2Ind.Theme;
 
 const CANCEL_DISTANCE_ON_SCROLL = 20;
+
+const{SocialPerson} = MUI.Libs.SvgIcons;
 
 const styles = {
     root: {
@@ -251,6 +254,7 @@ class Sidebar extends React.Component
         const isTouching = this.isTouching();
         const rootProps = {
             style: styles.root,
+            backgroundColor:"#ccc"
         };
         let dragHandle;
 
@@ -345,7 +349,6 @@ class Sidebar extends React.Component
         }
 
         return (<div {...rootProps}>
-
                 <div style={sidebarStyle} ref="sidebar">
                     {this.props.sidebar}
                 </div>

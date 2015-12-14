@@ -11,7 +11,7 @@ publicRoutes.route( '/login', {
     triggersEnter: [Base2Ind.Router.redirectIfLoggedIn],
     action()
     {
-        Base2Ind.Helper.render(App,<LoginBox registerLink={options.registerLink} /> );
+        Base2Ind.Helper.render(App,<LoginWrapper registerLink={options.registerLink} /> );
     }
 });
 
@@ -19,7 +19,7 @@ publicRoutes.route( '/register', {
     name: 'register',
     action()
     {
-        Base2Ind.Helper.render(App,<RegisterBox registerLink={options.registerLink} /> );
+        Base2Ind.Helper.render(App,<RegisterWrapper registerLink={options.registerLink} /> );
     }
 });
 
@@ -27,7 +27,7 @@ publicRoutes.route( '/reset-password', {
     name: 'reset-password',
     action()
     {
-        Base2Ind.Helper.render(App,<ResetPasswordBox registerLink={options.registerLink} /> );
+        Base2Ind.Helper.render(App,<ResetPasswordWrapper registerLink={options.registerLink} /> );
     }
 });
 

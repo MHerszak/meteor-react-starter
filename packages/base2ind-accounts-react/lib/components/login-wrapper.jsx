@@ -1,10 +1,14 @@
-let {LoggedIn} = Base2Ind.Components;
+const {LoggedIn,
+    PaperWrapper
+    } = Base2Ind.Components;
+
 let {Utils} = Base2Ind.Helper;
+
 //instance of translate component in namespace
 const T = _i18n.createComponent(_i18n.createTranslator(NAMESPACE));
 
-LoginBox = React.createClass({
-    displayName: 'LoginBox',
+LoginWrapper = React.createClass({
+    displayName: 'LoginWrapper',
 
     propTypes: {
         registerLink: React.PropTypes.string,
@@ -33,24 +37,19 @@ LoginBox = React.createClass({
             return <LoggedIn />;
         }
 
-        return (
-            <div>
-                <div className="ui large top attached segment">
+        return (<PaperWrapper>
 
-                    <h2 className="ui center aligned dividing header"><T>sign_in</T></h2>
+                <span style={{padding:20}}><T>sign_in</T></span>
 
-                    <LoginForm
-                      onError={ Utils.onError.bind(this) }
-                      clearErrors={ Utils.clearErrors.bind(this) }
-                      />
-                </div>
+                <LoginForm
+                    onError={ Utils.onError.bind(this) }
+                    clearErrors={ Utils.clearErrors.bind(this) } />
 
                 {(this.props.registerLink || this.props.resetLink) ?
-                    <div className="ui large bottom attached info icon message">
-                        <i className="user icon"></i>
+                    <div>
 
-                        <div className="content">
-                            <div className="ui list">
+                        <div>
+                            <div>
                                 {this.props.registerLink ?
                                     <div className="item"><T>dont_have_an_account</T><a href={this.props.registerLink}><T>register_here</T></a></div>
                                     : ''}
@@ -63,9 +62,9 @@ LoginBox = React.createClass({
                     : ''}
 
                 { this.renderErrorMessages() }
-            </div>
-        );
+
+        </PaperWrapper>);
     }
 });
 
-_.extend(Base2Ind,{LoginBox});
+_.extend(Base2Ind,{LoginWrapper});

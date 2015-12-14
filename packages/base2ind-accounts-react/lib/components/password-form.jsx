@@ -36,7 +36,7 @@ PasswordForm = React.createClass({
                     if (err && err.error === 400) {
                         onError(_i18n.__(NAMESPACE, 'invalid_usename_or_password'));
                     } else if (err) {
-                        onError(err.reason || _i18n.__('accounts-ui', 'unknown_error'));
+                        onError(err.reason || _i18n.__(NAMESPACE, 'unknown_error'));
                     } else {
                         clearErrors();
                     }
@@ -76,15 +76,14 @@ PasswordForm = React.createClass({
 
         return (
             <form onSubmit={this.handleSubmit}
-                  className={'ui large form' + (this.state.loading ? ' loading' : '')}
+                  className={'form' + (this.state.loading ? ' loading' : '')}
                   ref="form">
 
                 <div className="required field">
                     <label><T>email</T></label>
                     <input type="email"
                            placeholder={ _i18n.__(NAMESPACE, 'email') }
-                           ref="email"
-                    />
+                           ref="email" />
                 </div>
 
                 <div className="required field">
@@ -96,17 +95,17 @@ PasswordForm = React.createClass({
                 </div>
 
                 {isRegistration ?
-                <div className="required field">
-                    <label><T>repeat_password</T></label>
-                    <input
-                        type="password"
-                        placeholder={ _i18n.__(NAMESPACE, 'repeat_password') }
-                        ref="password2"/>
-                </div>
+                    <div className="required field">
+                        <label><T>repeat_password</T></label>
+                        <input
+                            type="password"
+                            placeholder={ _i18n.__(NAMESPACE, 'repeat_password') }
+                            ref="password2"/>
+                    </div>
                     : ''}
 
                 <button type="submit"
-                        className="ui fluid large primary button">
+                        className="center-align btn btn-flat">
                     { isRegistration ?
                         _i18n.__(NAMESPACE, 'sign_up') :
                         _i18n.__(NAMESPACE, 'sign_in') }

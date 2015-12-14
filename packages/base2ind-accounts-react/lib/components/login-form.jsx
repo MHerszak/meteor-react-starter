@@ -2,6 +2,10 @@ let {Utils} = Base2Ind.Helper;
 //instance of translate component in namespace
 const T = _i18n.createComponent(_i18n.createTranslator(NAMESPACE));
 
+const style = {
+    padding:120
+}
+
 LoginForm = React.createClass({
     displayName: 'LoginForm',
     propTypes: {
@@ -13,23 +17,22 @@ LoginForm = React.createClass({
         //console.log("services: ", services);
         const { clearErrors, onError } = this.props;
         //`Sign in with ${Utils.capitalize(service)}`
-        return (
-            <div className="ui form">
-
+        return (<div>
                 <div>
                     {services.map(service => {
-                        return (
+                        return (<div className={style}>
                             <OAuthButton
                                 service={service}
-                                text={`${_i18n.__(NAMESPACE, 'sign_in_with')} ${Utils.capitalize(service)}`}
+                                /*text={`${_i18n.__(NAMESPACE, 'sign_in_with')} ${Utils.capitalize(service)}`}*/
+                                text={`${Utils.capitalize(service)}`}
                                 key={service}
                                 />
-                        );
+                            </div>);
                     })}
                 </div>
 
                 {services.length > 0 && Utils.hasPasswordService() ?
-                    <div className="ui horizontal divider"><T>sign_in_with_email</T></div> : ''
+                    <div className="divider"><T>sign_in_with_email</T></div> : ''
                 }
 
                 {Utils.hasPasswordService() ?
@@ -40,8 +43,7 @@ LoginForm = React.createClass({
                       /> : ''
                 }
 
-            </div>
-        );
+            </div>);
     }
 });
 

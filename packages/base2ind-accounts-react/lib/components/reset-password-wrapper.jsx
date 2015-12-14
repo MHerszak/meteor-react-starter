@@ -1,9 +1,12 @@
 let {Utils} = Base2Ind.Helper;
+
+const {PaperWrapper} = Base2Ind.Components;
+
 //instance of translate component in namespace
 const T = _i18n.createComponent(_i18n.createTranslator(NAMESPACE));
 
-ResetPasswordBox = React.createClass({
-    displayName: 'ResetPasswordBox',
+ResetPasswordWrapper = React.createClass({
+    displayName: 'ResetPasswordWrapper',
     mixins: [ReactMeteorData],
     propTypes: {
         registerLink: React.PropTypes.string
@@ -65,43 +68,33 @@ ResetPasswordBox = React.createClass({
 
         if (this.state.emailSent) {
             return (
-                <div className="ui large top attached segment">
-                    <h2 className="ui center aligned dividing header"><T>email_sent</T></h2>
+                <div>
+                    <div className="center"><T>email_sent</T></div>
                     <T>check_your_inbox_for_further_instructions</T>
                 </div>
             );
         }
 
-        return (
-            <div>
-                <div className="ui large top attached segment">
+        return (<PaperWrapper>
+                <div className="center"><T>reset_password</T></div>
 
-                    <h2 className="ui center aligned dividing header"><T>reset_password</T></h2>
+                <form onSubmit={this.handleSubmit}
+                      className={'ui form' + (this.state.loading ? ' loading' : '')}
+                      ref="form">
 
-                    <form onSubmit={this.handleSubmit}
-                          className={'ui form' + (this.state.loading ? ' loading' : '')}
-                          ref="form">
+                    <label><T>your_email</T></label>
 
-                        <div className="required field">
-                            <label><T>your_email</T></label>
+                    <input type="email"
+                           placeholder={_i18n.__(NAMESPACE, 'email')}
+                           ref="email" />
 
-                            <div className="ui fluid input">
-                                <input type="email"
-                                       placeholder={_i18n.__(NAMESPACE, 'email')}
-                                       ref="email"
-                                    />
-                            </div>
-                        </div>
-
-                        <button type="submit"
-                                className="ui fluid large primary button">
-                            <T>send_reset_link</T>
-                        </button>
-                    </form>
-                </div>
+                    <button type="submit" className="btn btn-flat">
+                        <T>send_reset_link</T>
+                    </button>
+                </form>
 
                 {this.props.registerLink ?
-                    <div className="ui large bottom attached info icon message">
+                    <div>
                         <i className="user icon"></i>
                         <T>dont_have_an_account</T>
                         <a href={this.props.registerLink}>&nbsp;<T>register_here</T></a>
@@ -109,9 +102,9 @@ ResetPasswordBox = React.createClass({
                     : ''}
 
                 { this.renderErrorMessages() }
-            </div>
+            </PaperWrapper>
         );
     }
 });
 
-_.extend(Base2Ind,{ResetPasswordBox});
+_.extend(Base2Ind,{ResetPasswordWrapper});

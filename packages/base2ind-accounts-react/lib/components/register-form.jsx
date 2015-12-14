@@ -12,7 +12,7 @@ RegisterForm = React.createClass({
         let services = Utils.getServiceNames();
         const { clearErrors, onError } = this.props;
 
-        return (<div className="ui form">
+        return (<div>
                 <div>
                     {services.map(service => {
                         return (
@@ -26,7 +26,7 @@ RegisterForm = React.createClass({
                 </div>
 
                 {services.length > 0 && Utils.hasPasswordService() ?
-                    <div className="ui horizontal divider"><T>sign_up_with_email</T></div> : ''
+                    <div className="divider"><T>sign_up_with_email</T></div> : ''
                 }
 
                 {Utils.hasPasswordService() ?
