@@ -12,6 +12,7 @@ Package.onUse(function (api) {
     'base2ind:lib-react@0.0.1',
     'base2ind:settings@0.0.1',
     'base2ind:i18n@0.0.1',
+    'base2ind:events@0.0.1'
   ]);
 
   api.addFiles([

@@ -237,7 +237,7 @@ Users.getRequiredFields = function () {
  */
 Users.hasCompletedProfile = function (user) {
   return _.every(Users.getRequiredFields(), function (fieldName) {
-    return !!Base2Ind.getNestedProperty(user, fieldName);
+    return !!Base2Ind.utils.getNestedProperty(user, fieldName);
   });
 };
 //Users.helpers({hasCompletedProfile: function () {return Users.hasCompletedProfile(this);}});

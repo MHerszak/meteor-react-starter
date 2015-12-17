@@ -108,7 +108,7 @@ function setupUser (user, options) {
   }
 
   // create slug from display name
-  user.appuser.slug = Base2Ind.utils.slugify(user.appuser.displayName);
+  //user.appuser.slug = Base2Ind.utils.slugify(user.appuser.displayName);
 
   // if this is not a dummy account, and is the first user ever, make them an admin
   user.isAdmin = (!user.profile.isDummy && Meteor.users.find({'profile.isDummy': {$ne: true}}).count() === 0) ? true : false;

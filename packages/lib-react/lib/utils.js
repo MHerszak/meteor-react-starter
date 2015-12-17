@@ -366,45 +366,6 @@ Base2Ind.utils =
   },
 
   /**
-   * Creates a costume designer user in the database.
-   * <p>A costume designer is a kind of user in our system that have permission to create closets, projects and have a public profile in our system, as well as being a part of our revenue program.</p>
-   * <p>A username will be automatically generated for the user, made from his name and surname.</p>
-   * @param firstName
-   * @param lastName
-   * @param email
-   * @param password
-   * @returns {*}
-   * @constructor
-   */
-  CreateUser(firstName, lastName, email, password)
-  {
-    if (!Base2Ind.utils.emailIsUnique(email))
-      throw new Meteor.Error("The given email is already being used by another user");
-
-    var profile =
-    {
-      accountToken: "",
-      completed: false,
-      userProfile: {first_name: firstName, last_name: lastName, shortName: name, bio: "", picture: "/img/user.png"}
-    };
-
-    let id = Accounts.createUser({username: email, email: email, password: password, profile: profile});
-    return id;
-  },
-
-  /**
-   * For Facebook signup
-   * @param options
-   * @param signupInfo
-   * @returns {string}
-   * @constructor
-   */
-  createUserHook(options, signupInfo)
-  {
-    return CreateUser(options.profile.first_name, options.profile.last_name, signupInfo.email, options.password);
-  },
-
-  /**
    * Checks whether a passed object is a function. In most cases I am checking for callback functions.
    * @param object
    * @returns {*|boolean}
