@@ -20,7 +20,7 @@ LoginForm = React.createClass({
         return (<div>
                 <div>
                     {services.map(service => {
-                        return (<div className={style}>
+                        return (<div key={service} className={style}>
                             <OAuthButton
                                 service={service}
                                 /*text={`${_i18n.__(NAMESPACE, 'sign_in_with')} ${Utils.capitalize(service)}`}*/

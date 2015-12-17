@@ -96,8 +96,8 @@ Users.GetByUsername = function GetByUsername(username)
  * @param {Object} user
  */
 Users.getEmail = function getEmail(user) {
-  if(user.appuser && user.appuser.email){
-    return user.appuser.email;
+  if (user && user.emails){
+    return user.emails[0].address;
   }else{
     return null;
   }

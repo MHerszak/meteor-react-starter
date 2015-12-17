@@ -2,7 +2,7 @@
  * Resets an user's password and send him an email with a link for him to set his new password.
  * @param email
  */
-Users.ForgotPassword = function ForgotPassword(email)
+Users.forgotPassword = function forgotPassword(email)
 {
     var user = Meteor.users.findOne({email: email});
     if (user == null)
@@ -29,7 +29,7 @@ Users.ChangePassword = function ChangePassword(oldPassword, newPassword,callback
  * @param userId The user id.
  * @param newPassword The password that will be set.
  */
-Users.SetPassword = function SetPassword(userId, newPassword)
+Users.setPassword = function setPassword(userId, newPassword)
 {
     Accounts.setPassword(userId, newPassword);
 }

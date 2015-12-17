@@ -54,14 +54,19 @@ ResetPasswordWrapper = React.createClass({
             });
         });
     },
-    renderErrorMessages() {
-        if (typeof(this.state.error) ===  'string') {
+
+    renderErrorMessages()
+    {
+        if (typeof(this.state.error) ===  'string')
+        {
             let errors = [];
             errors.push(this.state.error);
             return <ErrorMessages errors={ errors } />
         }
     },
-    render () {
+
+    render ()
+    {
         if (this.data.user) {
             return <LoggedIn />;
         }

@@ -53,9 +53,9 @@ Package.onUse(function(api)
     './lib/client/shared/sidebar.jsx', //test
     //'./lib/client/shared/top-bar.jsx',
     './lib/client/shared/paper-wrapper.jsx',
+    './lib/client/shared/user-profile-gravatar.jsx',
     './lib/client/shared/material-title-panel.jsx',
     './lib/client/shared/sidebar-content.jsx',
-    './lib/client/shared/user-profile-gravatar.jsx',
 
     './lib/client/layout/default-layout.jsx',
 

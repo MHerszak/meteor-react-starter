@@ -86,15 +86,7 @@ function setupUser (user, options) {
   var userProperties = {
     profile: options.profile || {},
     appuser: {
-      /*karma: 0,
       isInvited: false,
-      postCount: 0,
-      commentCount: 0,
-      invitedCount: 0,
-      upvotedPosts: [],
-      downvotedPosts: [],
-      upvotedComments: [],
-      downvotedComments: []*/
     }
   };
   user = _.extend(user, userProperties);
@@ -104,11 +96,6 @@ function setupUser (user, options) {
     user.appuser.email = options.email;
   } else if (user.services.facebook && user.services.facebook.email) {
     user.appuser.email = user.services.facebook.email;
-  }
-
-  // generate email hash
-  if (!!user.appuser.email) {
-    user.appuser.emailHash = Gravatar.hash(user.appuser.email);
   }
 
   // look in a few places for the displayName

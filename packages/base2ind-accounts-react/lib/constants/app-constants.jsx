@@ -1,6 +1,0 @@
-AppConstants =
-{
-    // Actions
-    USER_LOGIN_SUCCESS: 'USER_LOGIN_SUCCESS',
-    USER_LOGIN_FAIL: 'USER__LOGIN_FAIL',
-};

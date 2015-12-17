@@ -4,17 +4,18 @@ let UserProfileGravatar = React.createClass({
 
     getMeteorData() {
         return {
-            currentUser: Meteor.user()
+            userId: Meteor.userId()
         };
     },
 
     render()
     {
-        let user = this.data.currentUser;
+        let email = Users.getEmailById(this.data.userId);
+
         return (
             <div className="row">
                 <div className="col">
-                    <Gravatar email={User.ge}
+                    <Gravatar email={Users.getEmailById(this.data.userId)}
                               shape="circle"
                               imgSrc={this.props.avatar} />
                 </div>

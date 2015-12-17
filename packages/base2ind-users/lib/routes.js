@@ -37,7 +37,8 @@ FlowRouter.route('/account', {
 FlowRouter.route('/sign-out', {
   name: "signOut",
   triggersEnter: [function(context, redirect) {
-    AccountsTemplates.logout();
-    Messages.flash(i18n.t("you_have_been_logged_out"));
+
+    //AccountsTemplates.logout();
+    //Messages.flash(i18n.t("you_have_been_logged_out"));
   }]
 });

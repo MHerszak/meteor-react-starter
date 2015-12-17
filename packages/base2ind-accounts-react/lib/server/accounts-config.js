@@ -20,6 +20,7 @@ Accounts.onLogin(function() {
     }
 });*/
 
+/*
 Accounts.onCreateUser(function(options, user)
 {
     console.log(options, user);
@@ -32,6 +33,8 @@ Accounts.onCreateUser(function(options, user)
     var userEmail = Base2Ind.utils.determineEmail(user);
 
     if(userEmail){return};
+
+    user = Base2Ind.callbacks.run("onCreateUser", user, options);
 
     if(typeof(user.services.facebook) !== "undefined")
     {
@@ -90,4 +93,4 @@ Accounts.onCreateUser(function(options, user)
     _.extend(user,user_add);
 
     return user;
-});
+});*/

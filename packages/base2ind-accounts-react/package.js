@@ -5,7 +5,8 @@ Package.describe({
     documentation: 'README.md',
 });
 
-Package.onUse(function (api) {
+Package.onUse(function (api)
+{
     api.versionsFrom('1.2.1');
 
     var packages = [
@@ -15,6 +16,7 @@ Package.onUse(function (api) {
     api.use(packages);
 
     api.addFiles([
+        './utils.js',
         './lib/utils.js',
         './lib/namespace.js',
         './lib/components/error-messages.jsx',

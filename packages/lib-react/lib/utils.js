@@ -409,8 +409,9 @@ Base2Ind.utils =
    * @param object
    * @returns {*|boolean}
    */
-  isFunction (object) {
-    return object && getClass.call(object) == '[object Function]';
+  isFunction(functionToCheck) {
+    var getType = {};
+    return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
   },
 
 };

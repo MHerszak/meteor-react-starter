@@ -34,9 +34,9 @@ _i18n.setLanguage = function (language) {
 
 _i18n.t = function (str, options) {
   if (Meteor.isServer) {
-    return TAPi18n.__(str, options, Settings.get('language', 'en'));
+    return _i18n.__(str, options, Settings.get('language', 'en'));
   } else {
-    return TAPi18n.__(str, options);
+    return _i18n.__(str, options);
   }
 };
 

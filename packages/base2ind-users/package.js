@@ -21,7 +21,7 @@ Package.onUse(function (api) {
     /*'lib/config.js',*/
     'lib/permissions.js',
     'lib/users.js',
-    'lib/avatars.js',
+    //'lib/avatars.js',
     'lib/callbacks.js',
     'lib/modules.js',
     'lib/helpers.js',

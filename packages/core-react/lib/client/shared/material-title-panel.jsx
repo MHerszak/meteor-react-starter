@@ -19,7 +19,7 @@ const MaterialTitlePanel = (props) =>
          * Check for gravatar
          * @type {XML}
          */
-        gravatar = props.gravatar ? <UserProfileGravatar userId={Meteor.userId()}/> : <div></div>,
+        gravatar = props.gravatar ? <UserProfileGravatar /> : <div></div>,
         /**
          * TODO: Think of something that is not title
          * @type {string}
