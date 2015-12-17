@@ -49,6 +49,22 @@ let notFound = "not Found";
 Base2Ind.Helper.render(App,<div>{notFound}</div>);
 
 ```
+## Flux and React
+You can make use of _AppDispatcher in case you need Stores and Observers in case something changes.
+
+```javascript
+
+// use actions and dispatcher for a stateful experience
+let {_AppDispatcher} = Base2Ind.Dispatcher;
+
+// The store mixin
+let {StoreMixin} = Base2Ind.Mixins;
+
+// Handles stores
+let {MessageStore} = Base2Ind.Store;
+
+```
+
 ## Available Route helpers
 
 ```javascript
@@ -85,11 +101,47 @@ The following classes are available:
 /**
  * Base2Ind.Theme includes all custom styles for your theme based on Material UI ThemeManager.
  */
-_.extend(Base2Ind.Theme,{CustomTheme});
+_.extend(Base2Ind.Theme,{CustomTheme}); // from core package
 /**
  * Base2Ind.Components includes all custom components that do not ship with Material UI
  */
-_.extend(Base2Ind.Components,{NavComponent});
+_.extend(Base2Ind.Components,{NavComponent}); // From core package
+
+/**
+ * Add global namespace for
+ * @type {{}}
+ */
+Base2Ind = {};
+
+/**
+ * Add namespace for classes
+ * @type {{}}
+ */
+Base2Ind.Classes = {};
+
+/**
+ * Build in components
+ * @type {{}}
+ */
+Base2Ind.Components = {};
+
+/**
+ * Add all available mixins to project
+ * @type {{}}
+ */
+Base2Ind.Mixins = {};
+
+/**
+ * Put all your Base2Ind.Dispatcher's in this object
+ * @type {{}}
+ */
+Base2Ind.Dispatcher = {};
+
+/**
+ * Put all the stores in here.
+ * @type {{}}
+ */
+Base2Ind.Store = {};
 ```
 
 ## Help is needed

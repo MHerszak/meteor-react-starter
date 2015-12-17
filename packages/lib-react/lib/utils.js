@@ -4,281 +4,403 @@
  */
 Base2Ind.utils = {};
 
-/**
- * Convert a camelCase string to dash-separated string
- * @param {String} str
- */
-Base2Ind.utils.camelToDash = function (str) {
-  return str.replace(/\W+/g, '-').replace(/([a-z\d])([A-Z])/g, '$1-$2').toLowerCase();
-};
-
-/**
- * Convert an underscore-separated string to dash-separated string
- * @param {String} str
- */
-Base2Ind.utils.underscoreToDash = function (str) {
-  return str.replace('_', '-');
-};
-
-/**
- * Convert a dash separated string to camelCase.
- * @param {String} str
- */
-Base2Ind.utils.dashToCamel = function (str) {
-  return str.replace(/(\-[a-z])/g, function($1){return $1.toUpperCase().replace('-','');});
-};
-
-/**
- * Convert a string to camelCase and remove spaces.
- * @param {String} str
- */
-Base2Ind.utils.camelCaseify = function(str) {
-  str = this.dashToCamel(str.replace(' ', '-'));
-  str = str.slice(0,1).toLowerCase() + str.slice(1);
-  return str;
-};
-
-/**
- * Trim a sentence to a specified amount of words and append an ellipsis.
- * @param {String} s - Sentence to trim.
- * @param {Number} numWords - Number of words to trim sentence to.
- */
-Base2Ind.utils.trimWords = function(s, numWords) {
-
-  if (!s)
-    return s;
-
-  var expString = s.split(/\s+/,numWords);
-  if(expString.length >= numWords)
-    return expString.join(" ")+"…";
-  return s;
-};
-
-/**
- * Trim a block of HTML code to get a clean text excerpt
- * @param {String} html - HTML to trim.
- */
-Base2Ind.utils.trimHTML = function (html, numWords) {
-  var text = Base2Ind.utils.stripHTML(html);
-  return Base2Ind.utils.trimWords(text, numWords);
-};
-
-/**
- * Capitalize a string.
- * @param {String} str
- */
-Base2Ind.utils.capitalise = function(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-};
-
-Base2Ind.utils.t = function(message) {
-  var d = new Date();
-  console.log("### "+message+" rendered at "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds());
-};
-
-Base2Ind.utils.nl2br = function(str) {
-  var breakTag = '<br />';
-  return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1'+ breakTag +'$2');
-};
-
-Base2Ind.utils.scrollPageTo = function(selector) {
-  $('body').scrollTop($(selector).offset().top);
-};
-
-Base2Ind.utils.getDateRange = function(pageNumber) {
-  var now = moment(new Date());
-  var dayToDisplay=now.subtract(pageNumber-1, 'days');
-  var range={};
-  range.start = dayToDisplay.startOf('day').valueOf();
-  range.end = dayToDisplay.endOf('day').valueOf();
-  // console.log("after: ", dayToDisplay.startOf('day').format("dddd, MMMM Do YYYY, h:mm:ss a"));
-  // console.log("before: ", dayToDisplay.endOf('day').format("dddd, MMMM Do YYYY, h:mm:ss a"));
-  return range;
-};
-
-//////////////////////////
-// URL Helper Functions //
-//////////////////////////
-
-/**
- * Returns the user defined site URL or Meteor.absoluteUrl
- */
-Base2Ind.utils.getSiteUrl = function () {
-  return Settings.get('siteUrl', Meteor.absoluteUrl());
-};
-
-/**
- * The global namespace for Base2Ind utils.
- * @param {String} url - the URL to redirect
- */
-Base2Ind.utils.getOutgoingUrl = function (url) {
-  return Base2Ind.utils.getSiteUrl() + "out?url=" + encodeURIComponent(url);
-};
-
-/**
- *
- * @param routeName
- * @param params
- * @param options
- * @returns {*}
- */
-Base2Ind.utils.getRouteUrl = function (routeName, params, options) {
-  options = options || {};
-  var route = FlowRouter.path(
-      routeName,
-      params || {},
-      options
-  );
-  return route;
-};
-
-Base2Ind.utils.findAndReplaceForwardSlash = function (src,replacement)
+Base2Ind.utils =
 {
-  return src.replace('/',replacement);
-}
+  /**
+   * Convert a camelCase string to dash-separated string
+   * @param str
+   * @returns {string}
+   */
+  camelToDash(str) {
+    return str.replace(/\W+/g, '-').replace(/([a-z\d])([A-Z])/g, '$1-$2').toLowerCase();
+  },
 
-Base2Ind.utils.getSignupUrl = function() {
-  return this.getSiteUrl() + this.findAndReplaceForwardSlash(this.getRouteUrl('signUp'),'');
-};
+  /**
+   * Convert an underscore-separated string to dash-separated string
+   * @param str
+   * @returns {*|XML|string|void}
+     */
+  underscoreToDash(str) {
+    return str.replace('_', '-');
+  },
 
-Base2Ind.utils.getSigninUrl = function() {
-  return this.getSiteUrl() + this.findAndReplaceForwardSlash(this.getRouteUrl('signIn'),'');
-};
+  /**
+   * Convert a dash separated string to camelCase.
+   * @param str
+   * @returns {*|XML|string|void}
+   */
+  dashToCamel(str) {
+    return str.replace(/(\-[a-z])/g, function($1){return $1.toUpperCase().replace('-','');});
+  },
 
-Base2Ind.utils.slugify = function (s) {
-  var slug = getSlug(s, {
-    truncate: 60
-  });
+  /**
+   * To camelCase
+   * @param str
+   * @returns {string|*}
+   */
+  camelCaseify(str) {
+    str = this.dashToCamel(str.replace(' ', '-'));
+    str = str.slice(0,1).toLowerCase() + str.slice(1);
+    return str;
+  },
 
-  // can't have posts with an "edit" slug
-  if (slug === "edit") {
-    slug = "edit-1";
-  }
+  /**
+   * Trim a sentence to a specified amount of words and append an ellipsis.
+   * @param s
+   * @param numWords
+   * @returns {*}
+   */
+  trimWords(s, numWords) {
 
-  return slug;
-};
+    if (!s)
+      return s;
 
-Base2Ind.utils.getUnusedSlug = function (collection, slug) {
-  var suffix = "";
-  var index = 0;
+    let expString = s.split(/\s+/,numWords);
+    if(expString.length >= numWords)
+      return expString.join(" ")+"…";
+    return s;
+  },
 
-  // test if slug is already in use
-  while (!!collection.findOne({slug: slug+suffix})) {
-    index++;
-    suffix = "-"+index;
-  }
+  /**
+   * Trim a block of HTML code to get a clean text excerpt
+   * @param html
+   * @param numWords
+   */
+  trimHTML(html, numWords) {
+    let text = Base2Ind.utils.stripHTML(html);
+    return Base2Ind.utils.trimWords(text, numWords);
+  },
 
-  return slug+suffix;
-};
+  /**
+   * Set's everything to upper case
+   * @param str
+   * @returns {string}
+   */
+  capitalise(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  },
 
-Base2Ind.utils.getShortUrl = function(post) {
-  return post.shortUrl || post.url;
-};
+  /**
+   * Log time
+   * @param message
+   */
+  t(message) {
+    let d = new Date();
+    console.log("### "+message+" rendered at "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds());
+  },
 
-Base2Ind.utils.getDomain = function(url) {
-  var urlObject = Npm.require('url');
-  return urlObject.parse(url).hostname.replace('www.', '');
-};
+  /**
+   * URL Helper Functions
+   */
 
-Base2Ind.utils.invitesEnabled = function() {
-  return Settings.get("requireViewInvite") || Settings.get("requirePostInvite");
-};
+  /**
+   * Get url for site from settings
+   * @returns {*}
+   */
+  getSiteUrl() {
+    return Settings.get('siteUrl', Meteor.absoluteUrl());
+  },
 
-// add http: if missing
-Base2Ind.utils.addHttp = function (url) {
-  if (url.substring(0, 5) !== "http:" && url.substring(0, 6) !== "https:") {
-    url = "http:"+url;
-  }
-  return url;
-};
+  /**
+   *
+   * @param url
+   * @returns {string}
+   */
+  getOutgoingUrl(url) {
+    return Base2Ind.utils.getSiteUrl() + "out?url=" + encodeURIComponent(url);
+  },
 
-Base2Ind.utils.cleanUp = function(s) {
-  return this.stripHTML(s);
-};
+  /**
+   * Get root url using FlowRouter
+   * @param routeName
+   * @param params
+   * @param options
+   * @returns {*}
+   */
+  getRouteUrl(routeName, params, options) {
+    options = options || {};
+    let route = FlowRouter.path(
+        routeName,
+        params || {},
+        options
+    );
+    return route;
+  },
 
-Base2Ind.utils.sanitize = function(s) {
-  // console.log('// before sanitization:')
-  // console.log(s)
-  if(Meteor.isServer){
-    s = sanitizeHtml(s, {
-      allowedTags: [
-        'h3', 'h4', 'h5', 'h6', 'blockquote', 'p', 'a', 'ul',
-        'ol', 'nl', 'li', 'b', 'i', 'strong', 'em', 'strike',
-        'code', 'hr', 'br', 'div', 'table', 'thead', 'caption',
-        'tbody', 'tr', 'th', 'td', 'pre', 'img'
-      ]
-    });
-    // console.log('// after sanitization:')
-    // console.log(s)
-  }
-  return s;
-};
-
-Base2Ind.utils.stripHTML = function(s) {
-  return s.replace(/<(?:.|\n)*?>/gm, '');
-};
-
-Base2Ind.utils.stripMarkdown = function(s) {
-  var htmlBody = marked(s);
-  return Base2Ind.utils.stripHTML(htmlBody);
-};
-
-// http://stackoverflow.com/questions/2631001/javascript-test-for-existence-of-nested-object-key
-Base2Ind.utils.checkNested = function(obj /*, level1, level2, ... levelN*/) {
-  var args = Array.prototype.slice.call(arguments);
-  obj = args.shift();
-
-  for (var i = 0; i < args.length; i++) {
-    if (!obj.hasOwnProperty(args[i])) {
-      return false;
-    }
-    obj = obj[args[i]];
-  }
-  return true;
-};
-
-/**
- *
- * @param obj
- * @returns {Array}
- */
-Base2Ind.getObjectKeys = function (obj) {
-  var keys = [];
-  for(var key in obj)
+  /**
+   * Some links are not properly build so slashes have to be deleted
+   * @param src
+   * @param replacement
+   * @returns {*|XML|string|void}
+   */
+  findAndReplaceForwardSlash(src,replacement)
   {
-    console.log("obj: ", key);
-    keys.push(key);
-  }
-  return keys;
-}
+    return src.replace('/',replacement);
+  },
 
-Base2Ind.log = function (s) {
-  if(Settings.get('debug', false))
-    console.log(s);
-};
+  /**
+   * This helps to obtain the full path based on your current page.
+   * @returns {*}
+   */
+  getSignupUrl() {
+    return this.getSiteUrl() + this.findAndReplaceForwardSlash(this.getRouteUrl('signUp'),'');
+  },
 
-// see http://stackoverflow.com/questions/8051975/access-object-child-properties-using-a-dot-notation-string
-Base2Ind.getNestedProperty = function (obj, desc) {
-  var arr = desc.split(".");
-  while(arr.length && (obj = obj[arr.shift()]));
-  return obj;
-};
+  /**
+   *
+   * @returns {*}
+   */
+  getSigninUrl()
+  {
+    return this.getSiteUrl() + this.findAndReplaceForwardSlash(this.getRouteUrl('signIn'),'');
+  },
 
-Base2Ind.utils.checkIfSignedIn = function checkIfSignedIn() {
-  var route;
-  if (!(Meteor.loggingIn() || Meteor.userId())) {
-    route = FlowRouter.current();
-    if (route.route.name !== 'login') {
-      Session.set('redirectAfterLogin', route.path);
+  /**
+   *
+   * @param s
+   * @returns {*}
+   */
+  slugify(s)
+  {
+    let slug = getSlug(s, {
+      truncate: 60
+    });
+
+    // can't have posts with an "edit" slug
+    if (slug === "edit") {
+      slug = "edit-1";
     }
-    return FlowRouter.go("/");
-  }
-}
 
-/**
- * Get the team detail url in order for the new user to check in with them.
- * @returns {*}
- */
-Base2Ind.utils.getTeamDetailUrl = function() {
-  return this.getSiteUrl() + this.findAndReplaceForwardSlash(this.getRouteUrl('dashboardTeams'),'') + "/";
+    return slug;
+  },
+
+  /**
+   *
+   * @param url
+   * @returns {string}
+   */
+  getDomainfunction(url) {
+    let urlObject = Npm.require('url');
+    return urlObject.parse(url).hostname.replace('www.', '');
+  },
+
+  /**
+   * This is only necessary if you care about
+   * @returns {*}
+   */
+  invitesEnabled() {
+    return Settings.get("requireViewInvite") || Settings.get("requirePostInvite");
+  },
+
+  /**
+   *
+   * @param url
+   * @returns {*}
+   */
+  addHttp(url)
+  {
+    if (url.substring(0, 5) !== "http:" && url.substring(0, 6) !== "https:") {
+      url = "http:"+url;
+    }
+    return url;
+  },
+
+  /**
+   *
+   * @param s
+   * @returns {*|XML|string|void}
+   */
+  cleanUp(s) {
+    return this.stripHTML(s);
+  },
+
+  /**
+   *
+   * @param s
+   * @returns {*}
+   */
+  sanitize(s) {
+    // console.log('// before sanitization:')
+    // console.log(s)
+    if(Meteor.isServer){
+      s = sanitizeHtml(s, {
+        allowedTags: [
+          'h3', 'h4', 'h5', 'h6', 'blockquote', 'p', 'a', 'ul',
+          'ol', 'nl', 'li', 'b', 'i', 'strong', 'em', 'strike',
+          'code', 'hr', 'br', 'div', 'table', 'thead', 'caption',
+          'tbody', 'tr', 'th', 'td', 'pre', 'img'
+        ]
+      });
+      // console.log('// after sanitization:')
+      // console.log(s)
+    }
+    return s;
+  },
+
+  /**
+   *
+   * @param s
+   * @returns {*|XML|string|void}
+   */
+  stripHTML(s) {
+    return s.replace(/<(?:.|\n)*?>/gm, '');
+  },
+
+  /**
+   *
+   * @param s
+   */
+  stripMarkdown(s) {
+    let htmlBody = marked(s);
+    return Base2Ind.utils.stripHTML(htmlBody);
+  },
+
+  /**
+   * Source: // http://stackoverflow.com/questions/2631001/javascript-test-for-existence-of-nested-object-key
+   * @param obj
+   * @returns {boolean}
+   */
+  checkNested(obj) {
+    let args = Array.prototype.slice.call(arguments);
+    obj = args.shift();
+
+    for (let i = 0; i < args.length; i++) {
+      if (!obj.hasOwnProperty(args[i])) {
+        return false;
+      }
+      obj = obj[args[i]];
+    }
+    return true;
+  },
+
+  /**
+   *
+   * @param obj
+   * @returns {Array}
+   */
+  getObjectKeys(obj)
+  {
+    let keys = [];
+    for(let key in obj)
+    {
+      /** Push to array */
+      keys.push(key);
+    }
+    return keys;
+  },
+
+  /**
+   *
+   * @param s
+   */
+  log(s) {
+    if(Settings.get('debug', false))
+      console.log(s);
+  },
+
+  /**
+   * Source: http://stackoverflow.com/questions/8051975/access-object-child-properties-using-a-dot-notation-string
+   * @param obj
+   * @param desc
+   * @returns {*}
+     */
+  getNestedProperty(obj, desc) {
+    let arr = desc.split(".");
+    while(arr.length && (obj = obj[arr.shift()]));
+    return obj;
+  },
+
+  /**
+   * Am I signed in? Helps with routing on trigger for router.
+   */
+  checkIfSignedIn() {
+    let route;
+    if (!(Meteor.loggingIn() || Meteor.userId())) {
+      route = FlowRouter.current();
+      if (route.route.name !== 'login') {
+        Session.set('redirectAfterLogin', route.path);
+      }
+      return FlowRouter.go("/");
+    }
+  },
+
+  /**
+   *
+   * @param email
+   * @returns {boolean}
+   */
+  emailIsUnique(email)
+  {
+    return Meteor.users.findOne({"emails.address": email}) == null;
+  },
+
+  /**
+   *
+   * @param user
+   * @returns {*}
+   */
+  determineEmail(user)
+  {
+    var emailAddress, services;
+    if (user.emails) {
+      return emailAddress = user.emails[0].address;
+    } else if (user.services) {
+      services = user.services;
+      return emailAddress = (function() {
+        switch (false) {
+          case !services.facebook:
+            return services.facebook.email;
+          case !services.github:
+            return services.github.email;
+          case !services.google:
+            return services.google.email;
+          case !services.twitter:
+            return null;
+          default:
+            return null;
+        }
+      })();
+    } else {
+      return null;
+    }
+  },
+
+  /**
+   * Creates a costume designer user in the database.
+   * <p>A costume designer is a kind of user in our system that have permission to create closets, projects and have a public profile in our system, as well as being a part of our revenue program.</p>
+   * <p>A username will be automatically generated for the user, made from his name and surname.</p>
+   * @param firstName
+   * @param lastName
+   * @param email
+   * @param password
+   * @returns {*}
+   * @constructor
+   */
+  CreateUser(firstName, lastName, email, password)
+  {
+    if (!Base2Ind.utils.emailIsUnique(email))
+      throw new Meteor.Error("The given email is already being used by another user");
+
+    var profile =
+    {
+      accountToken: "",
+      completed: false,
+      userProfile: {first_name: firstName, last_name: lastName, shortName: name, bio: "", picture: "/img/user.png"}
+    };
+
+    let id = Accounts.createUser({username: email, email: email, password: password, profile: profile});
+    return id;
+  },
+
+  /**
+   * For Facebook signup
+   * @param options
+   * @param signupInfo
+   * @returns {string}
+   * @constructor
+   */
+  createUserHook(options, signupInfo)
+  {
+    return CreateUser(options.profile.first_name, options.profile.last_name, signupInfo.email, options.password);
+  }
 };

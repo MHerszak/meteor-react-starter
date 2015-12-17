@@ -34,18 +34,14 @@ RegisterWrapper = React.createClass({
         const { clearErrors, onError } = this.props;
 
         return (<PaperWrapper>
-                <div className="ui large top attached segment">
+            <div className="center">
+                <T>sign_up</T>
+            </div>
 
-                    <div className="center">
-                        <T>sign_up</T>
-                    </div>
-
-                    <RegisterForm
-                        onError={ Utils.onError.bind(this) }
-                        clearErrors={ Utils.clearErrors.bind(this) }
-                        />
-
-                </div>
+            <RegisterForm
+                onError={ Utils.onError.bind(this) }
+                clearErrors={ Utils.clearErrors.bind(this) }
+            />
 
                 {this.props.loginLink ?
                     <div>

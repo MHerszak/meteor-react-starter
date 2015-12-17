@@ -16,6 +16,10 @@ Package.onUse(function(api)
 
   var packages = [
     'base2ind:lib-react@0.0.1', // no dependencies
+    'base2ind:i18n@0.0.1',
+      // place for events
+    'base2ind:settings@0.0.1',
+    'base2ind:users@0.0.1',
     //'base2ind:theme-react@0.0.1', // base2ind:lib-react
   ];
 
@@ -51,6 +55,7 @@ Package.onUse(function(api)
     './lib/client/shared/paper-wrapper.jsx',
     './lib/client/shared/material-title-panel.jsx',
     './lib/client/shared/sidebar-content.jsx',
+    './lib/client/shared/user-profile-gravatar.jsx',
 
     './lib/client/layout/default-layout.jsx',
 

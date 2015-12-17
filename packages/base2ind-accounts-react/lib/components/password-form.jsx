@@ -54,6 +54,8 @@ PasswordForm = React.createClass({
 
             this.setState({loading: true});
 
+            //ActionMaps.createUser();
+
             Accounts.createUser({
                 email: emailNode.value,
                 password: passwordNode.value

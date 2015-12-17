@@ -2,7 +2,7 @@ const {LoggedIn,
     PaperWrapper
     } = Base2Ind.Components;
 
-let {Utils} = Base2Ind.Helper;
+const {Utils} = Base2Ind.Helper;
 
 //instance of translate component in namespace
 const T = _i18n.createComponent(_i18n.createTranslator(NAMESPACE));

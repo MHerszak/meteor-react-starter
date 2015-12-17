@@ -1,4 +1,7 @@
-const {CustomTheme} = Base2Ind.Theme;
+const {CustomTheme} = Base2Ind.Theme; // from core package
+const {StoreMixin } = Base2Ind.Mixins; // from lib package
+const {_LoginStore} = Base2Ind.Store; // in this package
+const {UserProfileGravatar} = Base2Ind.Components;
 
 const stylesMTP =
 {
@@ -9,11 +12,23 @@ const stylesMTP =
     subHeader: CustomTheme.subHeader,
 };
 
-const MaterialTitlePanel = (props) => {
+const MaterialTitlePanel = (props) =>
+{
     const rootStyle = props.style ? {...stylesMTP.root, ...props.style} : stylesMTP.root,
-        user = Meteor.user(),
-        gravatar = props.gravatar ? <Profile username="Michel"/> : <div></div>,
+        /**
+         * Check for gravatar
+         * @type {XML}
+         */
+        gravatar = props.gravatar ? <UserProfileGravatar userId={Meteor.userId()}/> : <div></div>,
+        /**
+         * TODO: Think of something that is not title
+         * @type {string}
+         */
         title = props.gravatar ? '' : props.title,
+        /**
+         * TODO: Build a better ThemeManager for this gravatar
+         * @type {{}}
+         */
         sub = props.gravatar ? {...stylesMTP.subHeader,...CustomTheme.headerCommon} : {...stylesMTP.header,...CustomTheme.headerCommon};
 
     return (
@@ -28,33 +43,3 @@ const MaterialTitlePanel = (props) => {
 };
 
 _.extend(Base2Ind.Layout,{MaterialTitlePanel});
-
-let Profile = React.createClass({
-
-    render: function() {
-        return (
-            <div className="row">
-                <div className="col">
-                    <Gravatar email="michel.herszak@gmail.com"
-                              shape="circle"
-                              imgSrc={this.props.avatar} />
-                    <Bio text={this.props.bio} />
-                </div>
-                <div className="col">
-                    <div>{this.props.username}</div>
-                </div>
-            </div>
-        )
-    }
-});
-
-let Bio = React.createClass({
-    render()
-    {
-        return (
-            <div className="Bio">
-                <p className="Bio-text">{this.props.text}</p>
-            </div>
-        )
-    }
-});

@@ -15,7 +15,7 @@ Package.onUse(function (api) {
     api.use(packages);
 
     api.addFiles([
-        'utils.js',
+        './lib/utils.js',
         './lib/namespace.js',
         './lib/components/error-messages.jsx',
         './lib/components/logged-in.jsx',

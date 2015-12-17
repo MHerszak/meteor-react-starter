@@ -10,6 +10,8 @@ Package.describe({
 });
 
 Npm.depends({
+  "immutable" : "3.6.2",
+  "flux"      : "2.1.1",
   "react-mixin": "3.0.3",
 });
 
@@ -83,8 +85,13 @@ Package.onUse(function(api)
   ],['client','server']);
 
   api.addFiles([
-
     './lib/bind-component.jsx',
+    // Dispatcher
+    './lib/app-dispatcher.jsx',
+    // Flux utils
+    './lib/flux-utils.jsx',
+    // Mixin
+    './lib/store-mixin.jsx',
   ],['client']);
 
   api.export([

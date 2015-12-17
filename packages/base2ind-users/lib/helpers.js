@@ -45,7 +45,6 @@ Users.getDisplayName = function (user) {
     return (user.appuser && user.appuser.displayName) ? user.appuser.displayName : Users.getUserName(user);
   }
 };
-//Users.helpers({getDisplayName: function () {return Users.getDisplayName(this);}});
 Users.getDisplayNameById = function (userId) {return Users.getDisplayName(Meteor.users.findOne(userId));};
 
 /**
@@ -61,32 +60,49 @@ Users.getProfileUrl = function (user, isAbsolute) {
   var prefix = isAbsolute ? Base2Ind.utils.getSiteUrl().slice(0,-1) : "";
   return prefix + FlowRouter.path("userProfile", {_idOrSlug: user.appuser && user.appuser.slug || user._id});
 };
-//Users.helpers({getProfileUrl: function (isAbsolute) {return Users.getProfileUrl(this, isAbsolute);}});
+
+/**
+ *
+ * @param id
+ * @returns {any|*|{}}
+ */
+Users.GetById = function GetById(id)
+{
+  return Meteor.users.findOne({"_id": id});
+}
+
+/**
+ * Returns a Meteor.User object from his email.
+ * @param email The email of the user to retrieve.
+ * @returns {Meteor.User} A Meteor.User object, null if provided user email is invalid.
+ */
+Users.GetByEmail = function GetByEmail(email)
+{
+  return Meteor.users.findOne({"emails.address": email});
+}
+
+/**
+ * Returns a Meteor.User object from the username.
+ * @param username The username of the user to retrieve.
+ * @returns {Meteor.User} A Meteor.User object, null if provided user id is invalid.
+ */
+Users.GetByUsername = function GetByUsername(username)
+{
+  return Meteor.users.findOne({username: username});
+}
 
 /**
  * Get a user's email
  * @param {Object} user
  */
-Users.getEmail = function (user) {
+Users.getEmail = function getEmail(user) {
   if(user.appuser && user.appuser.email){
     return user.appuser.email;
   }else{
     return null;
   }
 };
-//Users.helpers({getEmail: function () {return Users.getEmail(this);}});
-Users.getEmailById = function (userId) {return Users.getEmail(Meteor.users.findOne(userId));};
-
-/**
- * Get a user's email hash
- * @param {Object} user
- */
-Users.getEmailHash = function (user) {
-  // has to be this way to work with Gravatar
-  return Gravatar.hash(Users.getEmail(user));
-};
-//Users.helpers({getEmailHash: function () {return Users.getEmailHash(this);}});
-Users.getEmailHashById = function (userId) {return Users.getEmailHash(Meteor.users.findOne(userId));};
+Users.getEmailById = function getEmailById(userId) {return Users.getEmail(Meteor.users.findOne(userId));};
 
 /**
  * Check if a user's profile is complete
