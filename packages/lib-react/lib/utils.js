@@ -402,5 +402,15 @@ Base2Ind.utils =
   createUserHook(options, signupInfo)
   {
     return CreateUser(options.profile.first_name, options.profile.last_name, signupInfo.email, options.password);
-  }
+  },
+
+  /**
+   * Checks whether a passed object is a function. In most cases I am checking for callback functions.
+   * @param object
+   * @returns {*|boolean}
+   */
+  isFunction (object) {
+    return object && getClass.call(object) == '[object Function]';
+  },
+
 };

@@ -15,7 +15,12 @@ PasswordForm = React.createClass({
             loading: false
         };
     },
-    handleSubmit (e) {
+    /**
+     *
+     * @param e
+     */
+    handleSubmit (e)
+    {
         e.preventDefault();
 
         const { clearErrors, onError } = this.props;
@@ -26,22 +31,21 @@ PasswordForm = React.createClass({
             // log in / sign in
 
             this.setState({loading: true});
-            Meteor.loginWithPassword(
-                emailNode.value,
-                passwordNode.value,
-                (err) => {
-                    // let errors = this.state.errors;
-                    this.setState({loading: false});
 
-                    if (err && err.error === 400) {
-                        onError(_i18n.__(NAMESPACE, 'invalid_usename_or_password'));
-                    } else if (err) {
-                        onError(err.reason || _i18n.__(NAMESPACE, 'unknown_error'));
-                    } else {
-                        clearErrors();
-                    }
+            Users.loginWithPassword(emailNode.value, passwordNode.value, (err) =>
+            {
+                // let errors = this.state.errors;
+                this.setState({loading: false});
+
+                if (err && err.error === 400) {
+                    onError(_i18n.__(NAMESPACE, 'invalid_usename_or_password'));
+                } else if (err) {
+                    onError(err.reason || _i18n.__(NAMESPACE, 'unknown_error'));
+                } else {
+                    clearErrors();
                 }
-            );
+            });
+
         } else {
             // register / sign up
             var passwordNode2 = this.refs.password2;
@@ -54,12 +58,10 @@ PasswordForm = React.createClass({
 
             this.setState({loading: true});
 
-            //ActionMaps.createUser();
+            let credentials = {email: emailNode.value, password: passwordNode.value};
 
-            Accounts.createUser({
-                email: emailNode.value,
-                password: passwordNode.value
-            }, (err) => {
+            Users.createUser(credentials, (err) =>
+            {
                 this.setState({loading: false});
                 if (err) {
                     onError(err.reason || i18n.__(NAMESPACE, 'unknown_error'));
@@ -70,7 +72,8 @@ PasswordForm = React.createClass({
             });
         }
     },
-    render () {
+    render ()
+    {
         if (!Utils.hasPasswordService()) {
             return <div></div>;
         }
