@@ -63,6 +63,7 @@ Package.onUse(function(api)
     'kadira:dochead@1.4.0',
 
     'browserstudios:gravatar-react@0.0.2',
+    'browserstudios:form-components-react@0.0.3',
 
     'izzilab:material-ui@0.2.3',
 

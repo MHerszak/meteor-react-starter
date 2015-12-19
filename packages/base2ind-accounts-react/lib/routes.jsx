@@ -11,7 +11,7 @@ publicRoutes.route( '/login', {
     triggersEnter: [Base2Ind.Router.redirectIfLoggedIn],
     action()
     {
-        Base2Ind.Helper.render(App,<LoginWrapper registerLink={options.registerLink} /> );
+        Base2Ind.Helper.render(App,<SignInContainer /> );
     }
 });
 

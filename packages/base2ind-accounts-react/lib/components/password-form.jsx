@@ -51,7 +51,7 @@ PasswordForm = React.createClass({
             var passwordNode2 = this.refs.password2;
 
             if (passwordNode.value !== passwordNode2.value) {
-                onError(i18n.__(NAMESPACE, 'passwords_dont_match'));
+                onError(_i18n.__(NAMESPACE, 'passwords_dont_match'));
 
                 return;
             }
@@ -64,7 +64,7 @@ PasswordForm = React.createClass({
             {
                 this.setState({loading: false});
                 if (err) {
-                    onError(err.reason || i18n.__(NAMESPACE, 'unknown_error'));
+                    onError(err.reason || _i18n.__(NAMESPACE, 'unknown_error'));
                 } else {
                     clearErrors();
                     // this.refs.form.reset();

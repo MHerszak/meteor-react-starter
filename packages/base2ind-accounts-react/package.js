@@ -18,6 +18,7 @@ Package.onUse(function (api)
     api.addFiles([
         './utils.js',
         './lib/utils.js',
+        './lib/core.js',
         './lib/namespace.js',
         './lib/components/error-messages.jsx',
         './lib/components/logged-in.jsx',
@@ -41,4 +42,6 @@ Package.onUse(function (api)
         return "./i18n/"+language+".i18n.json";
     });
     api.addFiles(languagesPaths, ["client", "server"]);
+
+    //api.export(['AccountsUI'],['client']);
 });
