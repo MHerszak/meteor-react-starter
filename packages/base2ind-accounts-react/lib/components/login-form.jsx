@@ -107,7 +107,7 @@ const SignIn = React.createClass({
     },
 
     componentDidMount() {
-        this.refs.nameInput.getDOMNode().focus();
+        //this.refs.nameInput.getDOMNode().focus();
     },
 
     renderInputs() {

@@ -16,9 +16,16 @@ Package.onUse(function (api)
     api.use(packages);
 
     api.addFiles([
+        './lib/routes.jsx',
+        './lib/core.js',
+        './lib/server/accounts.js',
+        './lib/server/startup.js',
+    ],['client','server']);
+
+    api.addFiles([
         './utils.js',
         './lib/utils.js',
-        './lib/core.js',
+
         './lib/namespace.js',
         './lib/components/error-messages.jsx',
         './lib/components/logged-in.jsx',
@@ -32,10 +39,6 @@ Package.onUse(function (api)
 
         './lib/menu.js'
     ],['client']);
-
-    api.addFiles([
-        './lib/routes.jsx',
-    ],['client','server']);
 
     var languages = ["en"];
     var languagesPaths = languages.map(function (language) {
